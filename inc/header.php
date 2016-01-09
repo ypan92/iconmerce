@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -12,14 +13,14 @@
 
 		<div class="container clearfix">
 
-			<h1 class="name"><a href="#"><?php echo $nameTitle ?></a></h1>
+			<h1 class="name"><a href="index.php"><?php echo $nameTitle ?></a></h1>
 			<ul class="main-nav">
 				<li><a href="#">gallery</a></li>
 				<li><a href="#">categories</a></li>
 				<li><a href="#">popular</a></li>
-				<li><a href="#">new</a></li>
-				<li><a href="#">sign up</a></li>
-				<li><a href="#">login</a></li>
+				<!--li><a href="#">new</a></li-->
+				<li><a href="signup.php">sign up</a></li>
+				<li><a href="login.php">login</a></li>
 			</ul>
 
 		</div>
