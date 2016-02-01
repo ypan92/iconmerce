@@ -1,3 +1,11 @@
+<?php
+include_once 'pdo/config.php';
+
+if ($_GET['logout']) {
+	$user->logout();
+}
+?>
+
 <html>
 <head>
 	<title><?php echo $pageTitle; ?></title>
@@ -21,7 +29,18 @@
 				<li><a href="#">popular</a></li>
 				<!--li><a href="#">new</a></li-->
 				<li><a href="signup.php">sign up</a></li>
-				<li><a href="login.php">login</a></li>
+				<?php 
+					if($user->is_loggedin()) {
+				?>
+					<li><a href="#"><?php echo '<p>WELCOME '.$_SESSION['username'].'</p>' ?></a></li>
+					<li><a href='index.php?logout=true'>logout</a></li>
+				<?php 
+					} else {
+				?>
+				 	<li><a href="login.php">login</a></li>
+				<?php 
+					} 
+				?>
 			</ul>
 
 		</div>

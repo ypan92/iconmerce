@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
-include("inc/header.php");
+include("inc/header.php"); 
 ?>
 
 
