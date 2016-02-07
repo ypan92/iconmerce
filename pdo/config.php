@@ -2,10 +2,10 @@
 
 session_start();
 
-$DB_host = "localhost";
-$DB_user = "root";
-$DB_pass = "root";
-$DB_name = "iconmerce";
+$DB_host = "iconmercedb.cxcch2tzx4mi.us-west-1.rds.amazonaws.com";
+$DB_user = "iconadmin";
+$DB_pass = "ic0n3ntry";
+$DB_name = "icondb";
 
 try
 {

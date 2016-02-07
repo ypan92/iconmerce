@@ -11,11 +11,11 @@ include("inc/header.php");
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <p class="lead">ICONMERCE</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="#" class="list-group-item">Gallery</a>
+                    <a href="#" class="list-group-item">Categories</a>
+                    <a href="#" class="list-group-item">Popular</a>
                 </div>
             </div>
 
@@ -59,9 +59,9 @@ include("inc/header.php");
                             <img src="http://placehold.it/320x150" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="#">First Product</a>
+                                <h4><a href="item.php">First Product</a>
                                 </h4>
-                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -163,13 +163,13 @@ include("inc/header.php");
                             </div>
                         </div>
                     </div>
-
+<!--
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
                         </h4>
                         <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
                         <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div>
+                    </div>-->
 
                 </div>
 
@@ -178,30 +178,7 @@ include("inc/header.php");
         </div>
 
     </div>
-    <!-- /.container -->
 
-    <div class="container">
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+<?php 
+include("inc/footer.php");
+?>
