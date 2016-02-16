@@ -32,13 +32,37 @@ include("inc/header.php");
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/star.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="#">Gold Star</a>
+                                            </h4>
+                                            <p>Emphasize your favorite files with the gold star.</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/chest.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="item.php">Treasure</a>
+                                            </h4>
+                                            <p>Turn any treasured file into an actual treasure chest.</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/charging_iconcopy.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="#">Charge</a>
+                                            </h4>
+                                            <p>Give your most important programs the charge symbol they deserve.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -56,12 +80,12 @@ include("inc/header.php");
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="./img/chest.png" alt="">
+                            <img src="./img/chest.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="item.php">First Product</a>
+                                <h4><a href="item.php">Treasure</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Turn any treasured file into an actual treasure chest.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -78,12 +102,12 @@ include("inc/header.php");
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="./img/star.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Second Product</a>
+                                <h4><a href="#">Gold Star</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Emphasize your favorite files with the gold star.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">12 reviews</p>
@@ -100,12 +124,12 @@ include("inc/header.php");
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="./img/charging_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Third Product</a>
+                                <h4><a href="#">Charge</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Give your most important programs the charge symbol they deserve.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">31 reviews</p>
@@ -122,12 +146,12 @@ include("inc/header.php");
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="./img/exit_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Fourth Product</a>
+                                <h4><a href="#">Exit</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Exit Icon.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">6 reviews</p>
@@ -144,12 +168,12 @@ include("inc/header.php");
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
+                            <img src="./img/streetLights_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Fifth Product</a>
+                                <h4><a href="#">Street Light</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Traffic Light Icon.</p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">18 reviews</p>

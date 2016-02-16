@@ -77,10 +77,24 @@ a {
 	margin: auto;
 }
 
+.iconThumbnail {
+	width: 100px;
+}
+
+.carousel-thumbnail {
+	text-align: center;
+}
+
 
 /* ================================= 
   Media Queries
 ==================================== */
+
+@media (max-width: 520px) {
+	#logo {
+		display: none;
+	}
+}
 
 @media (min-width: 800px) {
 
