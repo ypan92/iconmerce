@@ -154,6 +154,9 @@ include_once 'pdo/config.php';
                                 <h4><a href="#">Charge</a>
                                 </h4>
                                 <p>Give your most important programs the charge symbol they deserve.</p>
+                                <a href="add_to_cart.php?id=3&name=Charge" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">31 reviews</p>
@@ -176,6 +179,9 @@ include_once 'pdo/config.php';
                                 <h4><a href="#">Exit</a>
                                 </h4>
                                 <p>Exit Icon.</p>
+                                <a href="add_to_cart.php?id=4&name=Exit" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">6 reviews</p>
@@ -198,6 +204,9 @@ include_once 'pdo/config.php';
                                 <h4><a href="#">Street Light</a>
                                 </h4>
                                 <p>Traffic Light Icon.</p>
+                                <a href="add_to_cart.php?id=5&name=StreetLight" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">18 reviews</p>
