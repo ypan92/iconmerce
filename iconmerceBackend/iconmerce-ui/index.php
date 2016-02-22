@@ -129,7 +129,7 @@ include_once 'pdo/config.php';
                                 <h4><a href="#">Gold Star</a>
                                 </h4>
                                 <p>Emphasize your favorite files with the gold star.</p>
-                                <a href="add_to_cart.php?id=0&name=Star" class="btn btn-primary">
+                                <a href="add_to_cart.php?id=1&name=Star" class="btn btn-primary">
                                     <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
                                 </a>
                             </div>
