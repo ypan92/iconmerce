@@ -2,6 +2,7 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+include_once 'pdo/config.php';
 ?>
 
 
@@ -77,7 +78,24 @@ include("inc/header.php");
                 </div>
 
                 <div class="row">
-
+                	<div>
+                		<<?php 
+                			$action=isset($_GET['action'])?$_GET['action']:"";
+                			if ($action=='added') {
+                		 ?>
+                		 <div class='alert alert-info'>
+                		 	<strong><<?php  echo $_GET['name'];?> </strong>
+                		 	was added to your cart!
+                		 </div>
+                		 <<?php
+                		 	}else if($action=='exists'){
+                		 ?>
+                		 <div class='alert alert-info'>
+                		 	<strong><<?php  echo $_GET['name'];?> </strong>
+                		 	already exists in your cart!
+                		 </div>
+                		 <<?php } ?>
+                	</div>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="./img/chest.png" class="iconThumbnail" alt="">
@@ -86,6 +104,9 @@ include("inc/header.php");
                                 <h4><a href="item.php">Treasure</a>
                                 </h4>
                                 <p>Turn any treasured file into an actual treasure chest.</p>
+                                <a href="add_to_cart.php?id=2&name=Treasure" class="btn btn-primary">
+                                	<span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
