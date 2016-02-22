@@ -85,13 +85,23 @@ a {
 	text-align: center;
 }
 
+.item_id {
+	display: none;
+}
+
 
 /* ================================= 
   Media Queries
 ==================================== */
 
-@media (max-width: 520px) {
+/*@media (max-width: 520px) {
 	#logo {
+		display: none;
+	}
+}*/
+
+@media (max-width: 800px) {
+	.main-header {
 		display: none;
 	}
 }
@@ -121,6 +131,10 @@ a {
 		content: " ";
 		display: table;
 		clear: both;
+	}
+
+	.secondary-header {
+		display: none;	
 	}
 
 }

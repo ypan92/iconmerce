@@ -2,6 +2,9 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+/*$url = "http://localhost:8888/iconmerce/iconmerceBackend/iconmerce-api/products";
+$response = file_get_contents($url);
+echo $response;*/
 ?>
 
 
@@ -47,6 +50,7 @@ include("inc/header.php");
                                     <div class="thumbnail carousel-thumbnail">
                                         <img src="./img/chest.png" class="iconThumbnail" alt="">
                                         <div class="caption">
+                                            <?php $_SESSION['name'] = 'Treasure'; ?>
                                             <h4><a href="item.php">Treasure</a>
                                             </h4>
                                             <p>Turn any treasured file into an actual treasure chest.</p>
@@ -86,6 +90,7 @@ include("inc/header.php");
                                 <h4><a href="item.php">Treasure</a>
                                 </h4>
                                 <p>Turn any treasured file into an actual treasure chest.</p>
+                                <div class="item_id">2</div>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
