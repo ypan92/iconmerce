@@ -2,6 +2,7 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+include_once 'pdo/config.php';
 ?>
 
 
@@ -77,7 +78,24 @@ include("inc/header.php");
                 </div>
 
                 <div class="row">
-
+                	<div>
+                		<<?php 
+                			$action=isset($_GET['action'])?$_GET['action']:"";
+                			if ($action=='added') {
+                		 ?>
+                		 <div class='alert alert-info'>
+                		 	<strong><<?php  echo $_GET['name'];?> </strong>
+                		 	was added to your cart!
+                		 </div>
+                		 <<?php
+                		 	}else if($action=='exists'){
+                		 ?>
+                		 <div class='alert alert-info'>
+                		 	<strong><?php  echo $_GET['name'];?> </strong>
+                		 	already exists in your cart!
+                		 </div>
+                		 <<?php } ?>
+                	</div>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <img src="./img/chest.png" class="iconThumbnail" alt="">
@@ -86,6 +104,9 @@ include("inc/header.php");
                                 <h4><a href="item.php">Treasure</a>
                                 </h4>
                                 <p>Turn any treasured file into an actual treasure chest.</p>
+                                <a href="add_to_cart.php?id=2&name=Treasure" class="btn btn-primary">
+                                	<span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -108,6 +129,9 @@ include("inc/header.php");
                                 <h4><a href="#">Gold Star</a>
                                 </h4>
                                 <p>Emphasize your favorite files with the gold star.</p>
+                                <a href="add_to_cart.php?id=1&name=Star" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">12 reviews</p>
@@ -130,6 +154,9 @@ include("inc/header.php");
                                 <h4><a href="#">Charge</a>
                                 </h4>
                                 <p>Give your most important programs the charge symbol they deserve.</p>
+                                <a href="add_to_cart.php?id=3&name=Charge" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">31 reviews</p>
@@ -152,6 +179,9 @@ include("inc/header.php");
                                 <h4><a href="#">Exit</a>
                                 </h4>
                                 <p>Exit Icon.</p>
+                                <a href="add_to_cart.php?id=4&name=Exit" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">6 reviews</p>
@@ -174,6 +204,9 @@ include("inc/header.php");
                                 <h4><a href="#">Street Light</a>
                                 </h4>
                                 <p>Traffic Light Icon.</p>
+                                <a href="add_to_cart.php?id=5&name=StreetLight" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                </a>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">18 reviews</p>

@@ -44,6 +44,9 @@ if ($_GET['logout']) {
 				<?php 
 					} 
 				?>
+				<li><a href="cart.php" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-shopping-cart"> </span>Cart
+                 </a></li>
 			</ul>
 
 		</div>
