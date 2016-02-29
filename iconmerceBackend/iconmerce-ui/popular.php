@@ -32,13 +32,11 @@ try {
                         <div class="thumbnail">
                             <img src=<?php echo './img/'.$urow['item_location'];?> class="iconThumbnail" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$0.99</h4>
-                                <h4><a href=<?php echo 'item.php?item='.$urow['item_name'].'&id='.$urow['item_id'];?> >
-                                	<?php 
-                                		echo $urow['item_location'];?>
+                                <h4 class="pull-right"> <?php echo '$'.$urow['item_price']; ?> </h4>
+                                <h4><a href=<?php echo 'item.php?id='.$urow['item_id'];?> >
+                                	<?php echo $urow['item_name'];?>
                                 	</a>
-                                </h4>
-                                <p><?php echo $urow['item_desc'];?></p>
+                                </h4><p><?php echo $urow['item_desc'];?></p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">18 reviews</p>

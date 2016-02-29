@@ -44,22 +44,6 @@ class USER {
 		}
 	}
 
-	public function getItem($id){
-		try {
-			$query = $this->db->prepare("SELECT * FROM products WHERE item_id=:item LIMIT 1");
-			$query->execute(array(':item'=>$id));
-			$urow=$query->fetch(PDO::FETCH_ASSOC);
-
-			if($query->rowCount() > 0){
-				return $urow['item_location'];
-			}
-
-		} catch (PDOException $e){
-			echo $e->getMessage();
-		}
-
-	}
-
 	public function is_loggedin() {
 		if(isset($_SESSION['user_session'])){
 			return true;

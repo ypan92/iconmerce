@@ -14,15 +14,15 @@ if(!isset($_SESSION['cart_items'])){
 
 if(array_key_exists($id,$_SESSION['cart_items'])) {
 	//header('Location: /index.php?action=exists&id=' . $id . '&name=' . $name);
-	//echo "<script>";
-	//echo "window.location.href = './index.php?action=exists'";
-	//echo "</script>";
-	$user->redirect("./../index.php");
+	echo "<script>";
+	echo "window.location.href = './index.php?action=exists'";
+	echo "</script>";
+	//$user->redirect("./../index.php");
 }else{
 	$_SESSION['cart_items'][$id]=$name;	
-	//echo "<script>";
-	//echo "window.location.href = './index.php?action=added'";
-	//echo "</script>";
-	$user->redirect('./index.php');
+	echo "<script>";
+	echo "window.location.href = './index.php?action=added'";
+	echo "</script>";
+	//$user->redirect('./index.php');
 }
 ?>

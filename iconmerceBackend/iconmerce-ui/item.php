@@ -2,9 +2,16 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
-$item = './img/'.$user->getItem($_GET['id']);
-?>
 
+try {
+    $query = $DB_con->prepare("SELECT * FROM products WHERE item_id=:item LIMIT 1");
+    $query->execute(array(':item'=>$_GET['id']));
+    $items=$query->fetch(PDO::FETCH_ASSOC);
+    $item = './img/'.$items['item_location'];
+} catch (PDOException $e){
+    echo $e->getMessage();
+}
+?> 
     <!-- Page Content -->
     <div class="container">
 
@@ -13,9 +20,9 @@ $item = './img/'.$user->getItem($_GET['id']);
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="index.php" class="list-group-item active">Category 1</a>
+                    <a href="popular.php" class="list-group-item">Category 2</a>
+                    <a href="popular.php" class="list-group-item">Category 3</a>
                 </div>
             </div>
 
@@ -24,14 +31,16 @@ $item = './img/'.$user->getItem($_GET['id']);
                 <div class="thumbnail">
                     <img src=<?php echo $item;?> class="iconThumbnail" alt="">
                     <div class="caption-full">
-                        <h4 class="pull-right">$24.99</h4>
-                        <h4><a href="#"><?php echo $_GET['item']; ?></a>
+                        <h4 class="pull-right"><?php echo '$'.$items['item_price']; ?></h4>
+                        <h4><a href="#"><?php echo $items['item_name']; ?></a>
                         </h4>
                         <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                         <p>Want to make these reviews work? Check out
                             <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
                             </strong>over at maxoffsky.com!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p>
+                            <?php echo $items['item_desc'].'<br>'; ?>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
                     <div class="ratings">
                         <p class="pull-right">3 reviews</p>
