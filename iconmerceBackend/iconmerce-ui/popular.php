@@ -4,7 +4,7 @@ $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
 
 try {
-	$query = $DB_con->prepare("SELECT * FROM products");
+	$query = $DB_con->prepare("SELECT * FROM products ORDER BY item_rating DESC");
 	$query->execute();
 } catch (PDOException $e){
 	echo $e->getMessage();
