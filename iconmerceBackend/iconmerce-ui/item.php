@@ -2,6 +2,7 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+$item = './img/'.$user->getItem($_GET['id']);
 ?>
 
     <!-- Page Content -->
@@ -21,10 +22,10 @@ include("inc/header.php");
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <img src=<?php echo $item;?> class="iconThumbnail" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$24.99</h4>
-                        <h4><a href="#"><?php echo $_SESSION['name']; ?></a>
+                        <h4><a href="#"><?php echo $_GET['item']; ?></a>
                         </h4>
                         <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                         <p>Want to make these reviews work? Check out

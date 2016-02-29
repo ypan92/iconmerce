@@ -16,9 +16,9 @@ echo $response;*/
             <div class="col-md-3">
                 <p class="lead">ICONMERCE</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Gallery</a>
-                    <a href="#" class="list-group-item">Categories</a>
-                    <a href="#" class="list-group-item">Popular</a>
+                    <a href="index.php" class="list-group-item">Gallery</a>
+                    <a href="popular.php" class="list-group-item">Categories</a>
+                    <a href="popular.php" class="list-group-item">Popular</a>
                 </div>
             </div>
 
@@ -50,7 +50,6 @@ echo $response;*/
                                     <div class="thumbnail carousel-thumbnail">
                                         <img src="./img/chest.png" class="iconThumbnail" alt="">
                                         <div class="caption">
-                                            <?php $_SESSION['name'] = 'Treasure'; ?>
                                             <h4><a href="item.php">Treasure</a>
                                             </h4>
                                             <p>Turn any treasured file into an actual treasure chest.</p>
@@ -87,7 +86,7 @@ echo $response;*/
                             <img src="./img/chest.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="item.php">Treasure</a>
+                                <h4><a href="item.php?item=Treasure&id=2">Treasure</a>
                                 </h4>
                                 <p>Turn any treasured file into an actual treasure chest.</p>
                                 <div class="item_id">2</div>
@@ -110,7 +109,7 @@ echo $response;*/
                             <img src="./img/star.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Gold Star</a>
+                                <h4><a href="item.php?item=GoldStar&id=1">Gold Star</a>
                                 </h4>
                                 <p>Emphasize your favorite files with the gold star.</p>
                             </div>
@@ -132,7 +131,7 @@ echo $response;*/
                             <img src="./img/charging_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Charge</a>
+                                <h4><a href="item.php?item=Charge&id=3">Charge</a>
                                 </h4>
                                 <p>Give your most important programs the charge symbol they deserve.</p>
                             </div>
@@ -154,7 +153,7 @@ echo $response;*/
                             <img src="./img/exit_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Exit</a>
+                                <h4><a href="item.php?item=Exit&id=4">Exit</a>
                                 </h4>
                                 <p>Exit Icon.</p>
                             </div>
@@ -176,7 +175,7 @@ echo $response;*/
                             <img src="./img/streetLights_iconcopy.png" class="iconThumbnail" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">$0.99</h4>
-                                <h4><a href="#">Street Light</a>
+                                <h4><a href="item.php?item=StreetLight&id=5">Street Light</a>
                                 </h4>
                                 <p>Traffic Light Icon.</p>
                             </div>
