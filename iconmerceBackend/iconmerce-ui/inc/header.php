@@ -39,12 +39,12 @@ if ($_GET['logout']) {
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<?php if($user->is_loggedin()) { ?>
-						<li><a href="#"><?php echo '<p>WELCOME '.$_SESSION['username'].'</p>' ?></a></li>
+						<li><a href="account.php"><?php echo '<p>WELCOME '.$_SESSION['username'].'</p>' ?></a></li>
 						<li><a href='index.php?logout=true'>logout</a></li>
 						<li><a href="cart.php" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"> </span>Cart</a></li>
 					<?php } else { ?>
-						<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
-						<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+						<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+						<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
 					<?php }?>
 				</ul>
 			</div>

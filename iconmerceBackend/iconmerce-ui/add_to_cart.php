@@ -17,7 +17,7 @@ if(array_key_exists($id,$_SESSION['cart_items'])) {
 	echo "<script>";
 	echo "window.location.href = './index.php?action=exists'";
 	echo "</script>";
-	//$user->redirect("./../index.php");
+	//$user->redirect('index.php?action=exists');
 }else{
 	$_SESSION['cart_items'][$id]=$name;	
 	echo "<script>";

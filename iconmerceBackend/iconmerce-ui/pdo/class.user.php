@@ -44,6 +44,17 @@ class USER {
 		}
 	}
 
+	public function update($id, $up){
+		try{
+			$update = $this->db->prepare("UPDATE users SET username=:uname WHERE user_id=:userID");
+			$update->bindparam(":uname", $up);
+			$update->bindparam(":userID", $id);
+			$update->execute();
+		} catch (PDOException $e){
+			echo $e->getMessage();
+		}
+	}
+
 	public function is_loggedin() {
 		if(isset($_SESSION['user_session'])){
 			return true;

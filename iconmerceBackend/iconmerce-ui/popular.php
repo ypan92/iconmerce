@@ -15,7 +15,7 @@ try {
 
         <div class="row">
                 <div class="col-md-3">
-                <p class="lead">ICONMERCE</p>
+                <p class="lead">Most Popular</p>
                 <div class="list-group">
                     <a href="index.php" class="list-group-item">Gallery</a>
                     <a href="popular.php" class="list-group-item">Categories</a>
@@ -37,6 +37,11 @@ try {
                                 	<?php echo $urow['item_name'];?>
                                 	</a>
                                 </h4><p><?php echo $urow['item_desc'];?></p>
+                                <?php if($user->is_loggedin()){ ?>
+                                    <a href="add_to_cart.php?id=5&name=StreetLight" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-shopping-cart"> </span>Add to cart
+                                    </a>
+                                <?php } ?>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">18 reviews</p>
