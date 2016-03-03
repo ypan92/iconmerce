@@ -54,6 +54,18 @@ class USER {
 			echo $e->getMessage();
 		}
 	}
+	
+	public function addComment($id, $comment){
+		try{
+			$update = $this->db->prepare("INSERT INTO comments(user_id,comment)
+										VALUES(:user, :come)");
+			$update->bindparam(":user", $id);
+			$update->bindparam(":come", $comment);
+			$update->execute();
+		} catch (PDOException $e){
+			echo $e->getMessage();
+		}
+	}
 
 	public function is_loggedin() {
 		if(isset($_SESSION['user_session'])){

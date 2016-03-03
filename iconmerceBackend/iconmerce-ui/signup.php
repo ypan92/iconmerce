@@ -40,7 +40,10 @@ if(isset($_POST['btn-register'])){
             else {
                 //if($user->register($my_name,$my_username,$my_email,$my_password)) { // echo 'SUCCESS!: name: '. $my_name . ' username: ' . $my_username . ' email: '.$my_email;
                     $user->register($my_name,$my_username,$my_email,$my_password);
-                    $user->redirect('login.php?joined=true');
+                    //$user->redirect('login.php?joined=true');
+                    echo "<script>";
+					echo "window.location.href = './login.php?joined=true'";
+					echo "</script>";
                 //}
             }
         }

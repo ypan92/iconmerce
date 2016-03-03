@@ -9,7 +9,10 @@ if(isset($_POST['btn-submit'])) {
   $my_password = trim($_POST['password']);
 
   if($user->login($my_indentity, $my_password)) {
-    $user->redirect('index.php');
+    //$user->redirect('index.php');
+    echo "<script>";
+	echo "window.location.href = './index.php'";
+	echo "</script>";
   } else {
     $error[] = "Invalid username/email or password";
   }

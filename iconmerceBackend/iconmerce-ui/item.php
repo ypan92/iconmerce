@@ -11,6 +11,20 @@ try {
 } catch (PDOException $e){
     echo $e->getMessage();
 }
+$allow = "";
+$owner = "";
+$info = "";
+if(isset($_POST['review'])){
+	//echo "<script>";
+	//echo "window.location.href = ".'./item.php?Review=true&id='.$id;
+	//echo "</script>";
+	//echo $_POST['comment'].'<br>';
+	$allow='ALLOW';
+}
+
+if(isset($_POST['submit'])){
+	$user->addComment($_GET['id'], $_POST['comment']);
+}
 ?> 
     <!-- Page Content -->
     <div class="container">
@@ -56,55 +70,78 @@ try {
                 </div>
 
                 <div class="well">
+                	<form method="post">
+	                    <div class="text-right">
+	                    	<button class="btn btn-success" name="review">Leave a Review</button>
+	                    </div>
 
-                    <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
-                    </div>
+	                    <hr>
+	                    <?php
+		                    if($allow =='ALLOW') {
+		                    	if($user->is_loggedin()) {
+							    	$owner = $DB_con->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
+							    	$owner->execute(array(':id'=>$_SESSION['user_session']));
+							    	$info=$owner->fetch(PDO::FETCH_ASSOC);
+							    }
+	                    ?>
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star-empty"></span>
+	                            <?php echo  $info['username'];?> 
+	                            <span class="pull-right">blank</span> <br>
+	                            <textarea name="comment" rows="5" cols="100"></textarea> <br>
+	                            <button class="btn btn-success" name="submit">submit</button>
+	                        </div>
+	                    </div>
+	                    <hr>
+	                    <?php  } ?>
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star-empty"></span>
+	                            Anonymous
+	                            <span class="pull-right">10 days ago</span>
+	                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+	                        </div>
+	                    </div>
 
-                    <hr>
+	                    <hr>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-                    </div>
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star-empty"></span>
+	                            Anonymous
+	                            <span class="pull-right">12 days ago</span>
+	                            <p>I've alredy ordered another one!</p>
+	                        </div>
+	                    </div>
 
-                    <hr>
+	                    <hr>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">12 days ago</span>
-                            <p>I've alredy ordered another one!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">15 days ago</span>
-                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-                        </div>
-                    </div>
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star"></span>
+	                            <span class="glyphicon glyphicon-star-empty"></span>
+	                            Anonymous
+	                            <span class="pull-right">15 days ago</span>
+	                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+	                        </div>
+	                    </div>
+                    </form>
 
                 </div>
 
