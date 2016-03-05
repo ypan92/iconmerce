@@ -14,11 +14,11 @@ $option = isset($_GET['option']) ? $_GET['option'] : '1';
 
 if(isset($_POST['btn-submit'])) {
 	if($_POST['username'] != "") 
-		$user->update($_SESSION['user_session'],$_POST['username']);
+		$user->update($_SESSION['user_session'],$_POST['username'], "username", "users");
 	if($_POST['email'] != "")
-		$user->update($_SESSION['user_session'],$_POST['email']);
+		$user->update($_SESSION['user_session'],$_POST['email'], "email", "users");
 	if($_POST['password'] != "")
-		$user->update($_SESSION['user_session'],$_POST['password']);
+		$user->update($_SESSION['user_session'],$_POST['password'], "password", "users");
 
 	echo "<script>";
 	echo "window.location.href = './account.php?action=Successful'";
