@@ -15,7 +15,7 @@ $login = $user->is_loggedin();
                 <p class="lead">Gallary</p>
                 <div class="list-group">
                     <a href="index.php" class="list-group-item">Gallery</a>
-                    <a href="popular.php" class="list-group-item">Categories</a>
+                    <a href="about.php" class="list-group-item">About</a>
                     <a href="popular.php" class="list-group-item">Popular</a>
                 </div>
             </div>
