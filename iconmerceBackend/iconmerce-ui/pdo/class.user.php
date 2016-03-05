@@ -44,9 +44,12 @@ class USER {
 		}
 	}
 
-	public function update($id, $up){
+	public function update($id, $up, $col, $table){
 		try{
-			$update = $this->db->prepare("UPDATE users SET username=:uname WHERE user_id=:userID");
+			$update = $this->db->prepare("UPDATE ".$table." SET ".$col."=:uname WHERE user_id=:userID");
+			if ($col == "password") {
+				$up = password_hash($up, PASSWORD_DEFAULT);
+			}
 			$update->bindparam(":uname", $up);
 			$update->bindparam(":userID", $id);
 			$update->execute();
@@ -54,6 +57,15 @@ class USER {
 			echo $e->getMessage();
 		}
 	}
+
+	/*public function updateEmail($id, $val) {
+		try {
+			$update = $this->db->prepare("UPDATE users set")
+		}
+		catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}*/
 	
 	public function addComment($id, $comment){
 		try{
