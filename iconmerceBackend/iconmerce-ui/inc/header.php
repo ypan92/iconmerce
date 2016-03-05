@@ -13,6 +13,7 @@ if ($_GET['logout']) {
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/shop-homepage.css" type="text/css">
+	<link rel="stylesheet" href="css/round-about.css" type="text/css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +35,7 @@ if ($_GET['logout']) {
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="index.php">Gallery</a></li>
-					<li><a href="popular.php">Categories</a></li>
+					<li><a href="about.php">About</a></li>
 					<li><a href="popular.php">Popular</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
