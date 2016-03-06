@@ -15,15 +15,37 @@ $allow = "";
 $owner = "";
 $info = "";
 if(isset($_POST['review'])){
-	//echo "<script>";
-	//echo "window.location.href = ".'./item.php?Review=true&id='.$id;
-	//echo "</script>";
-	//echo $_POST['comment'].'<br>';
 	$allow='ALLOW';
 }
 
 if(isset($_POST['submit'])){
 	$user->addComment($_GET['id'], $_POST['comment']);
+	echo "<script>";
+	echo "window.location.href = ".'./item.php?id='.$id;
+	echo "</script>";
+}
+
+
+ $rating1 = isset($_POST['1'])?1:"";
+ $rating2 = isset($_POST['2'])?2:"";
+ $rating3 = isset($_POST['3'])?3:"";
+ $rating4 = isset($_POST['4'])?4:"";
+ $rating5 = isset($_POST['5'])?5:"";
+if($rating1 !=""){
+	$user->addRating($items['item_id'], $_SESSION['user_session'],1);
+}
+if($rating2 !="") {
+	$user->addRating($items['item_id'],$_SESSION['user_session'],2);
+}
+if($rating3 !="") {
+	$user->addRating($items['item_id'],$_SESSION['user_session'],3);
+}
+if($rating4 !="") {
+	$user->addRating($items['item_id'],$_SESSION['user_session'],4);
+}
+
+if($rating5 !="") {
+	$user->addRating($items['item_id'],$_SESSION['user_session'],5);
 }
 ?> 
     <!-- Page Content -->
@@ -71,49 +93,63 @@ if(isset($_POST['submit'])){
 
                 <div class="well">
                 	<form method="post">
-	                    <div class="text-right">
-	                    	<button class="btn btn-success" name="review">Leave a Review</button>
+	                    <div class="row">
+	                            <button type="submit" name="1"><span class="glyphicon glyphicon-star-empty"></span></button>
+	                    		<button type="submit" name="2"><span class="glyphicon glyphicon-star-empty"></span></button>
+	                            <button type="submit" name="3"><span class="glyphicon glyphicon-star-empty"></span></button>
+	                            <button type="submit" name="4"><span class="glyphicon glyphicon-star-empty"></span></button>
+	                            <button type="submit" name="5"><span class="glyphicon glyphicon-star-empty"></span></button>
+	                            <span class="pull-right"><button class="btn btn-success" name="review"> Leave a Review</button></span>
 	                    </div>
-
+	                </form>
 	                    <hr>
 	                    <?php
+	                    	$owner = $DB_con->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
+							$owner->execute(array(':id'=>$_SESSION['user_session']));
+							$info=$owner->fetch(PDO::FETCH_ASSOC);
 		                    if($allow =='ALLOW') {
-		                    	if($user->is_loggedin()) {
-							    	$owner = $DB_con->prepare("SELECT * FROM users WHERE user_id=:id LIMIT 1");
-							    	$owner->execute(array(':id'=>$_SESSION['user_session']));
-							    	$info=$owner->fetch(PDO::FETCH_ASSOC);
-							    }
 	                    ?>
+	                    <form method="post">
 	                    <div class="row">
 	                        <div class="col-md-12">
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star-empty"></span>
 	                            <?php echo  $info['username'];?> 
 	                            <span class="pull-right">blank</span> <br>
 	                            <textarea name="comment" rows="5" cols="100"></textarea> <br>
 	                            <button class="btn btn-success" name="submit">submit</button>
 	                        </div>
 	                    </div>
+	                    </form>
 	                    <hr>
-	                    <?php  } ?>
+	                    <?php  } 
+	                    	
+							$getComment = $DB_con->prepare("SELECT * FROM comments");
+							$getComment->execute();
+
+							$Rated = $DB_con->prepare("SELECT * FROM reviews WHERE user_id=:id LIMIT 1");
+							$Rated->execute(array(':id'=>$_SESSION['user_session']));
+							$displayRating = $Rated->fetch(PDO::FETCH_ASSOC);
+
+	                    	if($getComment->rowCount()>0){
+	                    		while($comment = $getComment->fetch(PDO::FETCH_ASSOC)) {
+	                    ?>
 	                    <div class="row">
 	                        <div class="col-md-12">
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star-empty"></span>
-	                            Anonymous
+	                        <?php 
+	                        	for ($x = 0; $x <= $displayRating['rating']; $x++) { ?>
+	                        		<span class="glyphicon glyphicon-star"></span>
+	                        <?php } 
+	                        	for ($x = $displayRating['rating']+1; $x < 5; $x++) { ?>
+	                        		<span class="glyphicon glyphicon-star-empty"></span>
+	                        <?php } echo $info['username']; ?>
 	                            <span class="pull-right">10 days ago</span>
-	                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+	                            <p> <?php echo $comment['comment']; ?> </p>
 	                        </div>
 	                    </div>
 
 	                    <hr>
+	                    <?php } 
 
+	                    }?>
 	                    <div class="row">
 	                        <div class="col-md-12">
 	                            <span class="glyphicon glyphicon-star"></span>

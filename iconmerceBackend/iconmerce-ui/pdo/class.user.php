@@ -44,11 +44,13 @@ class USER {
 		}
 	}
 
-	public function update($id, $up){
+	public function addRating($item, $id, $data){
 		try{
-			$update = $this->db->prepare("UPDATE users SET username=:uname WHERE user_id=:userID");
-			$update->bindparam(":uname", $up);
-			$update->bindparam(":userID", $id);
+			$update = $this->db->prepare("INSERT INTO reviews (user_id, item_id, rating)
+										VALUES(:user, :item,:rating)");
+			$update->bindparam(":user", $id);
+			$update->bindparam(":item", $item);
+			$update->bindparam(":rating", $data);
 			$update->execute();
 		} catch (PDOException $e){
 			echo $e->getMessage();
