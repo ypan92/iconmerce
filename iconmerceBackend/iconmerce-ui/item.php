@@ -126,8 +126,8 @@ if($rating5 ==5) {
 							$getComment = $DB_con->prepare("SELECT * FROM comments WHERE item_id=:item");
 							$getComment->execute(array(':item'=>$items['item_id']));
 
-							$Rated = $DB_con->prepare("SELECT * FROM reviews WHERE user_id=:id LIMIT 1");
-							$Rated->execute(array(':id'=>$_SESSION['user_session']));
+							$Rated = $DB_con->prepare("SELECT * FROM reviews WHERE user_id=:id and item_id=:item LIMIT 1");
+							$Rated->execute(array(':id'=>$_SESSION['user_session'],':item'=>$items['item_id']));
 							$displayRating = $Rated->fetch(PDO::FETCH_ASSOC);
 
 	                    	if($getComment->rowCount()>0){
