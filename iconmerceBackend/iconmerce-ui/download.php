@@ -34,11 +34,13 @@ include("inc/header.php");
  
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
- 
+            
+            $file = $row["item_location"];
+            echo $file;
             echo "<tr>";
                 echo "<td>{$row['item_name']}</td>";
                 echo "<td>";
-                    echo "<a href='./img/chest.png' class='btn btn-success' download>";
+                    echo "<a href='./img/{$file}' class='btn btn-success' download>";
                         echo "<span class='glyphicon glyphicon-shopping-cart'></span> Download";
                     echo "</a>";
                 echo "</td>";
