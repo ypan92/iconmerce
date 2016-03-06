@@ -51,6 +51,7 @@ class USER {
 			$update->bindparam(":user", $id);
 			$update->bindparam(":item", $item);
 			$update->bindparam(":rating", $data);
+			$update->execute();
 			} catch (PDOException $e){
 				echo $e->getMessage();
 			}
@@ -85,12 +86,13 @@ class USER {
 		}
 	}
 	
-	public function addComment($id, $comment){
+	public function addComment($id, $comment, $item){
 		try{
-			$update = $this->db->prepare("INSERT INTO comments(user_id,comment)
-										VALUES(:user, :come)");
+			$update = $this->db->prepare("INSERT INTO comments(user_id,comment,item_id)
+										VALUES(:user, :come, :item)");
 			$update->bindparam(":user", $id);
 			$update->bindparam(":come", $comment);
+			$update->bindparam(":item", $item);
 			$update->execute();
 		} catch (PDOException $e){
 			echo $e->getMessage();

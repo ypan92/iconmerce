@@ -19,32 +19,33 @@ if(isset($_POST['review'])){
 }
 
 if(isset($_POST['submit'])){
-	$user->addComment($_GET['id'], $_POST['comment']);
+	$user->addComment($_GET['id'], $_POST['comment'],$items['item_id']);
 	echo "<script>";
 	echo "window.location.href = ".'./item.php?id='.$id;
 	echo "</script>";
 }
 
 
- $rating1 = isset($_POST['1'])?1:"";
- $rating2 = isset($_POST['2'])?2:"";
- $rating3 = isset($_POST['3'])?3:"";
- $rating4 = isset($_POST['4'])?4:"";
- $rating5 = isset($_POST['5'])?5:"";
-if($rating1 !=""){
+ $rating1 = isset($_POST['1'])?1:0;
+ $rating2 = isset($_POST['2'])?2:0;
+ $rating3 = isset($_POST['3'])?3:0;
+ $rating4 = isset($_POST['4'])?4:0;
+ $rating5 = isset($_POST['5'])?5:0;
+
+if($rating1 ==1){
 	$user->addRating($items['item_id'], $_SESSION['user_session'],1);
 }
-if($rating2 !="") {
+if($rating2 ==2) {
 	$user->addRating($items['item_id'],$_SESSION['user_session'],2);
 }
-if($rating3 !="") {
+if($rating3 ==3) {
 	$user->addRating($items['item_id'],$_SESSION['user_session'],3);
 }
-if($rating4 !="") {
+if($rating4 ==4) {
 	$user->addRating($items['item_id'],$_SESSION['user_session'],4);
 }
 
-if($rating5 !="") {
+if($rating5 ==5) {
 	$user->addRating($items['item_id'],$_SESSION['user_session'],5);
 }
 ?> 
@@ -122,8 +123,8 @@ if($rating5 !="") {
 	                    <hr>
 	                    <?php  } 
 	                    	
-							$getComment = $DB_con->prepare("SELECT * FROM comments");
-							$getComment->execute();
+							$getComment = $DB_con->prepare("SELECT * FROM comments WHERE item_id=:item");
+							$getComment->execute(array(':item'=>$items['item_id']));
 
 							$Rated = $DB_con->prepare("SELECT * FROM reviews WHERE user_id=:id LIMIT 1");
 							$Rated->execute(array(':id'=>$_SESSION['user_session']));
@@ -138,7 +139,7 @@ if($rating5 !="") {
 	                        	for ($x = 0; $x <= $displayRating['rating']; $x++) { ?>
 	                        		<span class="glyphicon glyphicon-star"></span>
 	                        <?php } 
-	                        	for ($x = $displayRating['rating']+1; $x < 5; $x++) { ?>
+	                        	for ($x = $displayRating['rating'] + 1; $x < 5; $x++) { ?>
 	                        		<span class="glyphicon glyphicon-star-empty"></span>
 	                        <?php } echo $info['username']; ?>
 	                            <span class="pull-right">10 days ago</span>

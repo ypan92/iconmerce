@@ -4,7 +4,7 @@ $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
 
 try {
-	$query = $DB_con->prepare("SELECT * FROM products ORDER BY item_rating DESC");
+	$query = $DB_con->prepare("SELECT DISTINCT * FROM products as p inner join reviews as r  on (p.item_id=r.item_id) ORDER BY r.rating DESC");
 	$query->execute();
 } catch (PDOException $e){
 	echo $e->getMessage();
