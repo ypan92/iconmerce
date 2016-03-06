@@ -58,14 +58,15 @@ class USER {
 		}
 	}
 
-	/*public function updateEmail($id, $val) {
+	public function addPurchase($usrId, $itmId) {
 		try {
-			$update = $this->db->prepare("UPDATE users set")
+			$update = $this->db->prepare("INSERT into purchases(user_id, item_id) VALUES(".$usrId.",".$itmId.")");
+			$update->execute();
 		}
 		catch (PDOException $e) {
 			echo $e->getMessage();
 		}
-	}*/
+	}
 	
 	public function addComment($id, $comment){
 		try{

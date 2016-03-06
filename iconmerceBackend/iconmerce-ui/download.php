@@ -36,7 +36,7 @@ include("inc/header.php");
             extract($row);
             
             $file = $row["item_location"];
-            echo $file;
+            $user->addPurchase($_SESSION['user_session'], $row["item_id"]);
             echo "<tr>";
                 echo "<td>{$row['item_name']}</td>";
                 echo "<td>";
