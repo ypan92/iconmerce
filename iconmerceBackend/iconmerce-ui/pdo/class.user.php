@@ -60,8 +60,13 @@ class USER {
 
 	public function addPurchase($usrId, $itmId) {
 		try {
-			$update = $this->db->prepare("INSERT into purchases(user_id, item_id) VALUES(".$usrId.",".$itmId.")");
-			$update->execute();
+			$existCheck = $this->db->prepare("SELECT * FROM purchases WHERE user_id = ".$usrId." and item_id = ".$itmId);
+			$existCheck->execute();
+			$row = $existCheck->fetch(PDO::FETCH_ASSOC);
+			if (!$row) {
+				$update = $this->db->prepare("INSERT into purchases(user_id, item_id) VALUES(".$usrId.",".$itmId.")");
+				$update->execute();
+			}
 		}
 		catch (PDOException $e) {
 			echo $e->getMessage();
