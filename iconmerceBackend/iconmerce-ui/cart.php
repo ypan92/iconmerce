@@ -2,6 +2,7 @@
 $pageTitle = "Cart";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+require_once('./config.php'); 
 
 $action=isset($_GET['action'])?$_GET['action']:"";
 $name=isset($_GET['name'])?$_GET['name']:"";
@@ -54,9 +55,18 @@ if(count($_SESSION['cart_items'])>0){
                 echo "<td><b>Total</b></td>";
                 echo "<td>&#36;{$total_price}</td>";
                 echo "<td>";
-                    echo "<a href='#' class='btn btn-success'>";
+                    /*echo "<a href='#' class='btn btn-success'>";
                         echo "<span class='glyphicon glyphicon-shopping-cart'></span> Checkout";
-                    echo "</a>";
+                    echo "</a>";*/
+                    ?>
+                    <form action="download.php" method="post">
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="<?php echo $stripe['publishable_key']; ?>"
+                              data-description="Buy these icons"
+                              data-amount=<?php echo $total_price * 100; ?>
+                              data-locale="auto"></script>
+                    </form>
+                    <?php
                 echo "</td>";
             echo "</tr>";
  

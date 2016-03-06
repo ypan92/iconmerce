@@ -14,7 +14,7 @@ try {
  <div class="container">
 
         <div class="row">
-                <div class="col-md-3">
+            <div class="col-md-3">
                 <p class="lead">Most Popular</p>
                 <div class="list-group">
                     <a href="index.php" class="list-group-item">Gallery</a>
@@ -24,6 +24,59 @@ try {
             </div>
             
             <div class="col-md-9">
+                <div class="row carousel-holder">
+                 <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/star.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="#">Gold Star</a>
+                                            </h4>
+                                            <p>Emphasize your favorite files with the gold star.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/chest.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="item.php">Treasure</a>
+                                            </h4>
+                                            <p>Turn any treasured file into an actual treasure chest.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--<img class="slide-image" src="http://placehold.it/800x300" alt="">-->
+                                    <div class="thumbnail carousel-thumbnail">
+                                        <img src="./img/charging_iconcopy.png" class="iconThumbnail" alt="">
+                                        <div class="caption">
+                                            <h4><a href="#">Charge</a>
+                                            </h4>
+                                            <p>Give your most important programs the charge symbol they deserve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="row">
                 <?php 
     	    		while($urow=$query->fetch(PDO::FETCH_ASSOC)){

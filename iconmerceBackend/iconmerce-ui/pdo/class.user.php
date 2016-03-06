@@ -51,8 +51,36 @@ class USER {
 			$update->bindparam(":user", $id);
 			$update->bindparam(":item", $item);
 			$update->bindparam(":rating", $data);
+			} catch (PDOException $e){
+				echo $e->getMessage();
+			}
+	}
+
+	public function update($id, $up, $col, $table){
+		try{
+			$update = $this->db->prepare("UPDATE ".$table." SET ".$col."=:uname WHERE user_id=:userID");
+			if ($col == "password") {
+				$up = password_hash($up, PASSWORD_DEFAULT);
+			}
+			$update->bindparam(":uname", $up);
+			$update->bindparam(":userID", $id);
 			$update->execute();
 		} catch (PDOException $e){
+			echo $e->getMessage();
+		}
+	}
+
+	public function addPurchase($usrId, $itmId) {
+		try {
+			$existCheck = $this->db->prepare("SELECT * FROM purchases WHERE user_id = ".$usrId." and item_id = ".$itmId);
+			$existCheck->execute();
+			$row = $existCheck->fetch(PDO::FETCH_ASSOC);
+			if (!$row) {
+				$update = $this->db->prepare("INSERT into purchases(user_id, item_id) VALUES(".$usrId.",".$itmId.")");
+				$update->execute();
+			}
+		}
+		catch (PDOException $e) {
 			echo $e->getMessage();
 		}
 	}
