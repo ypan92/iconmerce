@@ -44,6 +44,19 @@ class USER {
 		}
 	}
 
+	public function addReviewRating($user_id, $item_id, $rating, $review) {
+		try {
+			$date = date('Y-m-d H:i:s');
+			echo $date;
+			$addQuery = $this->db->prepare("INSERT INTO ReviewsRatings (user_id, item_id, rating, review, date) 
+											VALUES(".$user_id.", ".$item_id.", ".$rating.", '".$review."', '".$date."')");
+			$addQuery->execute();
+		}
+		catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	public function addRating($item, $id, $data){
 		try{
 			$update = $this->db->prepare("INSERT INTO reviews (user_id, item_id, rating)

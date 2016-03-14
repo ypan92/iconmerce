@@ -30,7 +30,7 @@ include("inc/header.php");
                 <h3>Yang Pan
                     <small>Front End Developer/Back End Developer</small>
                 </h3>
-                <p>Manages the UI templates and framework interactions.  Implemented the RESTful services provided for this web application.</p>
+                <p>Manages the UI templates and framework interactions.  Implemented the RESTful services provided for this web application as well as the payment system with Stripe.</p>
             </div>
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
