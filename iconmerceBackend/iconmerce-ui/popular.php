@@ -4,11 +4,13 @@ $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
 
 try {
-	$query = $DB_con->prepare("SELECT DISTINCT * FROM products as p inner join reviews as r  on (p.item_id=r.item_id) ORDER BY r.rating DESC");
-	$query->execute();
+    $query = $DB_con->prepare("SELECT DISTINCT p.item_id,p.item_name,p.item_price,p.item_desc,p.item_location, AVG(r.rating) as avg FROM products as p inner join reviews as r  on (p.item_id=r.item_id) GROUP BY p.item_id ORDER BY avg DESC");
+$query->execute();
+
 } catch (PDOException $e){
 	echo $e->getMessage();
 }
+
 ?>
 
  <div class="container">
@@ -18,7 +20,8 @@ try {
                 <p class="lead">Most Popular</p>
                 <div class="list-group">
                     <a href="index.php" class="list-group-item">Gallery</a>
-                    <a href="popular.php" class="list-group-item">Categories</a>
+                    <a href="popular.php" class="list-g
+                    roup-item">Categories</a>
                     <a href="popular.php" class="list-group-item">Popular</a>
                 </div>
             </div>
