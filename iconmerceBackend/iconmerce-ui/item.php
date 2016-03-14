@@ -105,14 +105,17 @@ if(isset($_POST['submit'])){
 							$reviewRating = $DB_con->prepare("SELECT * FROM ReviewsRatings WHERE item_id = ".$items['item_id']
 															 ." ORDER BY date desc");
 							$reviewRating->execute();
-
+                            $numTime = 0;
+					        $avgRating = 0;
 	                    	if ($reviewRating->rowCount() > 0) {
 	                    		while ($review = $reviewRating->fetch(PDO::FETCH_ASSOC)) {
+									$numTime++;
 
 	                    ?>
 	                    <div class="row">
 	                        <div class="col-md-12">
 	                        <?php 
+									$avgRating += $review['rating'];
 	                        	for ($x = 0; $x < $review['rating']; $x++) { ?>
 	                        		<span class="glyphicon glyphicon-star"></span>
 	                        <?php } 
@@ -125,8 +128,9 @@ if(isset($_POST['submit'])){
 	                    </div>
 
 	                    <hr>
+					    <p> average rating: </p>
 	                    <?php } 
-
+						  echo $avgRating/$numTime;
 	                    }?>
 
                     </form>
