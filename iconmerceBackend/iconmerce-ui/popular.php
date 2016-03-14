@@ -20,8 +20,7 @@ $query->execute();
                 <p class="lead">Most Popular</p>
                 <div class="list-group">
                     <a href="index.php" class="list-group-item">Gallery</a>
-                    <a href="popular.php" class="list-g
-                    roup-item">Categories</a>
+                    <a href="about.php" class="list-group-item">About</a>
                     <a href="popular.php" class="list-group-item">Popular</a>
                 </div>
             </div>

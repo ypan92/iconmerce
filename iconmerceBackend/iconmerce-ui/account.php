@@ -75,7 +75,7 @@ if(isset($_POST['btn-submit'])) {
                     </div>
 					<?php if($option=='2') { ?>
 					<form method="post">
-						<div class="col-sm-4 col-lg-4 col-md-4">
+						<!--<div class="col-sm-4 col-lg-4 col-md-4">
                         	<div class="thumbnail">
                             	<div class="caption">
                                 	<h4>New Username</h4>
@@ -84,7 +84,7 @@ if(isset($_POST['btn-submit'])) {
                     				
                             	</div>
                        		</div>
-                       </div>
+                       </div>-->
                        <div class="col-sm-4 col-lg-4 col-md-4">
                         	<div class="thumbnail">
                             	<div class="caption">

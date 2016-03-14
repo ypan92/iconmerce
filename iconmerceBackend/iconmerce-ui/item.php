@@ -8,6 +8,16 @@ try {
     $query->execute(array(':item'=>$_GET['id']));
     $items=$query->fetch(PDO::FETCH_ASSOC);
     $item = './img/'.$items['item_location'];
+
+    $reviewCount = $DB_con->prepare("SELECT COUNT(*) as count FROM ReviewsRatings WHERE item_id = ".$items['item_id']);
+    $reviewCount->execute();
+    $numReviews = $reviewCount->fetch(PDO::FETCH_ASSOC);
+
+    $purchaseQuery = $DB_con->prepare("SELECT * FROM purchases WHERE item_id = ".$items['item_id']);
+    $purchaseQuery->execute();
+    $purchases = $purchaseQuery->fetch(PDO::FETCH_ASSOC);
+
+
 } catch (PDOException $e){
     echo $e->getMessage();
 }
@@ -19,49 +29,17 @@ if(isset($_POST['review'])){
 }
 
 if(isset($_POST['submit'])){
-	$user->addComment($_GET['id'], $_POST['comment'],$items['item_id']);
+	$user->addReviewRating($_SESSION['user_session'], $items['item_id'], $_POST['rating'], $_POST['comment']);
 	echo "<script>";
 	echo "window.location.href = ".'./item.php?id='.$id;
 	echo "</script>";
 }
 
-
- $rating1 = isset($_POST['1'])?1:0;
- $rating2 = isset($_POST['2'])?2:0;
- $rating3 = isset($_POST['3'])?3:0;
- $rating4 = isset($_POST['4'])?4:0;
- $rating5 = isset($_POST['5'])?5:0;
-
-if($rating1 ==1){
-	$user->addRating($items['item_id'], $_SESSION['user_session'],1);
-}
-if($rating2 ==2) {
-	$user->addRating($items['item_id'],$_SESSION['user_session'],2);
-}
-if($rating3 ==3) {
-	$user->addRating($items['item_id'],$_SESSION['user_session'],3);
-}
-if($rating4 ==4) {
-	$user->addRating($items['item_id'],$_SESSION['user_session'],4);
-}
-
-if($rating5 ==5) {
-	$user->addRating($items['item_id'],$_SESSION['user_session'],5);
-}
 ?> 
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
-
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="index.php" class="list-group-item active">Category 1</a>
-                    <a href="popular.php" class="list-group-item">Category 2</a>
-                    <a href="popular.php" class="list-group-item">Category 3</a>
-                </div>
-            </div>
 
             <div class="col-md-9">
 
@@ -80,7 +58,7 @@ if($rating5 ==5) {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
                     <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
+                        <p class="pull-right"><?php echo $numReviews['count']." reviews"; ?></p>
                         <p>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
@@ -95,12 +73,7 @@ if($rating5 ==5) {
                 <div class="well">
                 	<form method="post">
 	                    <div class="row">
-	                            <button type="submit" name="1"><span class="glyphicon glyphicon-star-empty"></span></button>
-	                    		<button type="submit" name="2"><span class="glyphicon glyphicon-star-empty"></span></button>
-	                            <button type="submit" name="3"><span class="glyphicon glyphicon-star-empty"></span></button>
-	                            <button type="submit" name="4"><span class="glyphicon glyphicon-star-empty"></span></button>
-	                            <button type="submit" name="5"><span class="glyphicon glyphicon-star-empty"></span></button>
-	                            <span class="pull-right"><button class="btn btn-success" name="review"> Leave a Review</button></span>
+	                        <span class="pull-right"><button class="btn btn-success" name="review"> Leave a Review</button></span>
 	                    </div>
 	                </form>
 	                    <hr>
@@ -114,36 +87,40 @@ if($rating5 ==5) {
 	                    <div class="row">
 	                        <div class="col-md-12">
 	                            <?php echo  $info['username'];?> 
-	                            <span class="pull-right">blank</span> <br>
+	                            <span class="pull-right"></span> <br>
 	                            <textarea name="comment" rows="5" cols="100"></textarea> <br>
+	                            <input id="ratings-hidden" name="rating" type="hidden"> 
+                                <div class="text-right">
+		                            <div class="stars starrr" data-rating="0"></div>
+		                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+		                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
 	                            <button class="btn btn-success" name="submit">submit</button>
-	                        </div>
+                    			</div>
+                    		</div>
 	                    </div>
 	                    </form>
 	                    <hr>
 	                    <?php  } 
 	                    	
-							$getComment = $DB_con->prepare("SELECT * FROM comments WHERE item_id=:item");
-							$getComment->execute(array(':item'=>$items['item_id']));
+							$reviewRating = $DB_con->prepare("SELECT * FROM ReviewsRatings WHERE item_id = ".$items['item_id']
+															 ." ORDER BY date desc");
+							$reviewRating->execute();
 
-							$Rated = $DB_con->prepare("SELECT * FROM reviews WHERE user_id=:id and item_id=:item LIMIT 1");
-							$Rated->execute(array(':id'=>$_SESSION['user_session'],':item'=>$items['item_id']));
-							$displayRating = $Rated->fetch(PDO::FETCH_ASSOC);
+	                    	if ($reviewRating->rowCount() > 0) {
+	                    		while ($review = $reviewRating->fetch(PDO::FETCH_ASSOC)) {
 
-	                    	if($getComment->rowCount()>0){
-	                    		while($comment = $getComment->fetch(PDO::FETCH_ASSOC)) {
 	                    ?>
 	                    <div class="row">
 	                        <div class="col-md-12">
 	                        <?php 
-	                        	for ($x = 0; $x <= $displayRating['rating']; $x++) { ?>
+	                        	for ($x = 0; $x < $review['rating']; $x++) { ?>
 	                        		<span class="glyphicon glyphicon-star"></span>
 	                        <?php } 
-	                        	for ($x = $displayRating['rating'] + 1; $x < 5; $x++) { ?>
+	                        	for ($x = $review['rating']; $x < 5; $x++) { ?>
 	                        		<span class="glyphicon glyphicon-star-empty"></span>
 	                        <?php } echo $info['username']; ?>
-	                            <span class="pull-right">10 days ago</span>
-	                            <p> <?php echo $comment['comment']; ?> </p>
+	                            <span class="pull-right"><?php echo $review['date']; ?></span>
+	                            <p> <?php echo $review['review']; ?> </p>
 	                        </div>
 	                    </div>
 
@@ -151,33 +128,7 @@ if($rating5 ==5) {
 	                    <?php } 
 
 	                    }?>
-	                    <div class="row">
-	                        <div class="col-md-12">
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star-empty"></span>
-	                            Anonymous
-	                            <span class="pull-right">12 days ago</span>
-	                            <p>I've alredy ordered another one!</p>
-	                        </div>
-	                    </div>
 
-	                    <hr>
-
-	                    <div class="row">
-	                        <div class="col-md-12">
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star"></span>
-	                            <span class="glyphicon glyphicon-star-empty"></span>
-	                            Anonymous
-	                            <span class="pull-right">15 days ago</span>
-	                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-	                        </div>
-	                    </div>
                     </form>
 
                 </div>
@@ -197,7 +148,7 @@ if($rating5 ==5) {
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Iconmerce 2016</p>
                 </div>
             </div>
         </footer>

@@ -49,4 +49,8 @@ include("inc/header.php");
         }
  
     echo "</table>";
+
+    foreach($_SESSION['cart_items'] as $id=>$value){
+        unset($_SESSION['cart_items'][$id]);
+    }
 ?>
