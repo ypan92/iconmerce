@@ -2,6 +2,7 @@
 $pageTitle = "Unique Icons designed for all ages";
 $nameTitle = "ICONMERCE";
 include("inc/header.php"); 
+$login = $user->is_loggedin();
 
 try {
     $query = $DB_con->prepare("SELECT * FROM products WHERE item_id=:item LIMIT 1");
@@ -73,7 +74,9 @@ if(isset($_POST['submit'])){
                 <div class="well">
                 	<form method="post">
 	                    <div class="row">
+	                    	<?php if ($login) { ?>
 	                        <span class="pull-right"><button class="btn btn-success" name="review"> Leave a Review</button></span>
+	                        <?php } ?>
 	                    </div>
 	                </form>
 	                    <hr>

@@ -55,9 +55,9 @@ if(count($_SESSION['cart_items'])>0){
                 echo "<td><b>Total</b></td>";
                 echo "<td>&#36;{$total_price}</td>";
                 echo "<td>";
-                    /*echo "<a href='#' class='btn btn-success'>";
+                    echo "<a href='#' class='btn btn-success'>";
                         echo "<span class='glyphicon glyphicon-shopping-cart'></span> Checkout";
-                    echo "</a>";*/
+                    echo "</a>";
                     ?>
                     <form action="download.php" method="post">
                       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
