@@ -15,8 +15,14 @@ protocol CenterViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class CenterViewController: UIViewController {
+class IconCollectionViewCell: UICollectionViewCell {
+    var icon: Icon?
+    
+    @IBOutlet weak var image: UIImageView!
+}
 
+class CenterViewController: UICollectionViewController {
+    
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
         UINavigationBar.appearance().titleTextAttributes = ["UITextAttributeTextColor": UIColor.whiteColor()]
@@ -27,8 +33,78 @@ class CenterViewController: UIViewController {
     
     var delegate: CenterViewControllerDelegate?
     
+    var icons: Icons? {
+        didSet {
+            if let oldValue = oldValue {
+                unregisterObservables(oldValue)
+            }
+            registerObservables()
+        }
+    }
+    
+    var observablesRegistered = false
+    
+    func registerObservables() {
+        if !observablesRegistered {
+            icons?.addObserver(self, forKeyPath: "count", options: .New, context: nil)
+        }
+        observablesRegistered = true
+    }
+    
+    func unregisterObservables(object: Icons?) {
+        if observablesRegistered {
+            icons?.removeObserver(self, forKeyPath: "count")
+        }
+        observablesRegistered = false
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "count" {
+            collectionView?.reloadData()
+        }
+    }
+    
+    deinit {
+        unregisterObservables(icons)
+    }
+    
     @IBAction func menu(sender: AnyObject) {
         delegate?.toggleLeftPanel?()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let count = icons?.count {
+            return count
+        }
+        return 0
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("IconCell", forIndexPath: indexPath) as! IconCollectionViewCell
+        
+        if let icon = icons?.icons[indexPath.row] {
+            cell.icon = icon
+            
+            if let imgName = icon.fileName {
+                let image = UIImage(named: imgName)
+                cell.image.image = image
+            }
+            
+            /*cell.mapView.removeAnnotations(cell.mapView.annotations)
+            cell.mapView.addAnnotation(annotation)
+            cell.mapView.region = MKCoordinateRegion(center: coord, span: MKCoordinateSpanMake(3, 3))*/
+            
+        }
+        
+        return cell
     }
     
     /*override func preferredStatusBarStyle() -> UIStatusBarStyle {

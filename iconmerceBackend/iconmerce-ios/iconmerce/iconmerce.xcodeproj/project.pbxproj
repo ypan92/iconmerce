@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E67891CBAE9A2009D807A /* IconModel.swift */; };
+		9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */; };
+		9C4E678E1CBB1B85009D807A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678D1CBB1B85009D807A /* star.png */; };
+		9C4E67901CBB1E89009D807A /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678F1CBB1E89009D807A /* chest.png */; };
+		9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67911CBB1E99009D807A /* charging_icon.png */; };
+		9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67931CBB1EA2009D807A /* exit_icon.png */; };
+		9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67951CBB1EAD009D807A /* streetLights_icon.png */; };
 		9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */; };
 		9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */; };
 		9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */; };
@@ -37,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C4E67891CBAE9A2009D807A /* IconModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
+		9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		9C4E678D1CBB1B85009D807A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		9C4E678F1CBB1E89009D807A /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
+		9C4E67911CBB1E99009D807A /* charging_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charging_icon.png; sourceTree = "<group>"; };
+		9C4E67931CBB1EA2009D807A /* exit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_icon.png; sourceTree = "<group>"; };
+		9C4E67951CBB1EAD009D807A /* streetLights_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streetLights_icon.png; sourceTree = "<group>"; };
 		9C7EEBCD1CB0A8F600A0F3A2 /* iconmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconmerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -103,15 +117,22 @@
 		9C7EEBCF1CB0A8F600A0F3A2 /* iconmerce */ = {
 			isa = PBXGroup;
 			children = (
+				9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */,
 				9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */,
 				9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */,
 				9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */,
 				9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */,
+				9C4E67931CBB1EA2009D807A /* exit_icon.png */,
+				9C4E678D1CBB1B85009D807A /* star.png */,
+				9C4E67951CBB1EAD009D807A /* streetLights_icon.png */,
+				9C4E67911CBB1E99009D807A /* charging_icon.png */,
+				9C4E678F1CBB1E89009D807A /* chest.png */,
 				9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */,
 				9C7EEBDF1CB0A8F600A0F3A2 /* Info.plist */,
 				9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */,
 				9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */,
 				9C7EEC031CB0EF9B00A0F3A2 /* SidePanelViewController.swift */,
+				9C4E67891CBAE9A2009D807A /* IconModel.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -242,7 +263,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */,
+				9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */,
+				9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */,
+				9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */,
+				9C4E678E1CBB1B85009D807A /* star.png in Resources */,
 				9C7EEBDB1CB0A8F600A0F3A2 /* Assets.xcassets in Resources */,
+				9C4E67901CBB1E89009D807A /* chest.png in Resources */,
 				9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +296,10 @@
 			files = (
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
+				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
+				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
 				9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

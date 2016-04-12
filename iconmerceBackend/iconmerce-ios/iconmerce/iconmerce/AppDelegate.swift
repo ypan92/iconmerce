@@ -13,14 +13,18 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let iconsLoader = IconsLoader()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        iconsLoader.icons = Icons()
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let containerViewController = ContainerViewController()
+        containerViewController.icons = iconsLoader.icons
         
         window!.rootViewController = containerViewController
         window!.makeKeyAndVisible()

@@ -10,6 +10,8 @@ import UIKit
 
 class SidePanelViewController: UITableViewController {
     
+    @IBOutlet weak var menuHeader: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

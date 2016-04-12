@@ -25,12 +25,15 @@ class ContainerViewController: UIViewController {
     
     let centerPanelExpandedOffset: CGFloat = 60
     
+    var icons: Icons?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         centerViewController = UIStoryboard.centerViewController()
         centerViewController.delegate = self
+        centerViewController.icons = icons
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
@@ -66,7 +69,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func toggleRightPanel() {
-        
+        //unimplemented
     }
     
     func addLeftPanelViewController() {
@@ -83,7 +86,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func addRightPanelViewController() {
-        
+        //unimplemented
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
@@ -101,7 +104,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func animateRightPanel(shouldExpand: Bool) {
-        
+        //unimplemented
     }
     
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
