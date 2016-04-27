@@ -19,9 +19,14 @@ class IconCollectionViewCell: UICollectionViewCell {
     var icon: Icon?
     
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var descr: UILabel!
+    
 }
 
 class CenterViewController: UICollectionViewController {
+    
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -96,6 +101,24 @@ class CenterViewController: UICollectionViewController {
             if let imgName = icon.fileName {
                 let image = UIImage(named: imgName)
                 cell.image.image = image
+                cell.title.text = icon.name
+                cell.title.textAlignment = .Left
+                if let price = icon.price {
+                    cell.price.text = "$\(price)"
+                }
+                else {
+                    cell.price.text = "$0.99"
+                }
+                
+                cell.price.textAlignment = .Right
+                
+                if let descr = icon.description {
+                    cell.descr.text = descr
+                }
+                else {
+                    cell.descr.text = ""
+                }
+                cell.descr.font = cell.descr.font.fontWithSize(13)
             }
             
         }
@@ -108,5 +131,8 @@ class CenterViewController: UICollectionViewController {
 extension CenterViewController: SidePanelViewControllerDelegate {
     func navItemSelected(title: String) {
         
+        
+        
+        delegate?.collapseSidePanels?()
     }
 }
