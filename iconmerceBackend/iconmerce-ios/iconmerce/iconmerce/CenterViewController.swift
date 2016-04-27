@@ -98,17 +98,15 @@ class CenterViewController: UICollectionViewController {
                 cell.image.image = image
             }
             
-            /*cell.mapView.removeAnnotations(cell.mapView.annotations)
-            cell.mapView.addAnnotation(annotation)
-            cell.mapView.region = MKCoordinateRegion(center: coord, span: MKCoordinateSpanMake(3, 3))*/
-            
         }
         
         return cell
     }
     
-    /*override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }*/
-    
+}
+
+extension CenterViewController: SidePanelViewControllerDelegate {
+    func navItemSelected(title: String) {
+        
+    }
 }
