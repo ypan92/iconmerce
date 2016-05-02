@@ -126,6 +126,18 @@ class CenterViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let iconSelected = icons?.icons[indexPath.row]
+        performSegueWithIdentifier("testSeg3", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "testSeg3" {
+            let dest = segue.destinationViewController as! IconContainerViewController
+            dest.icons = icons
+        }
+    }
+    
 }
 
 extension CenterViewController: SidePanelViewControllerDelegate {

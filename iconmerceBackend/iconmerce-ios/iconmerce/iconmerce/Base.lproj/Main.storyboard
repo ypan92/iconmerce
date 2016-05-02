@@ -5,6 +5,50 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Icon Container View Controller-->
+        <scene sceneID="V0f-LO-zqi">
+            <objects>
+                <viewController id="R9T-fz-nQm" customClass="IconContainerViewController" customModule="iconmerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="065-Ti-QZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="zPC-Fk-z4S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xgW-O9-Iso">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3qu-eH-RBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="-524"/>
+        </scene>
+        <!--iconmerce-->
+        <scene sceneID="GH9-jP-izo">
+            <objects>
+                <viewController storyboardIdentifier="IconCenterViewController" id="DML-dh-Eti" customClass="IconCenterViewController" customModule="iconmerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TfE-XV-hzD"/>
+                        <viewControllerLayoutGuide type="bottom" id="tBA-uJ-pEE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwk-lG-4a0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="iconmerce" id="YMA-HP-Kqy">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="emr-vB-8d8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="menu:" destination="DML-dh-Eti" id="iUH-7X-5A9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Geg-YQ-86L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="-841"/>
+        </scene>
         <!--iconmerce-->
         <scene sceneID="8dk-ex-BEk">
             <objects>
@@ -57,6 +101,7 @@
                                     <outlet property="image" destination="t3R-0I-kve" id="WTo-jZ-gCf"/>
                                     <outlet property="price" destination="9C8-xa-JfI" id="mhP-7v-cjI"/>
                                     <outlet property="title" destination="hgl-id-wyd" id="sss-Aq-56J"/>
+                                    <segue destination="R9T-fz-nQm" kind="showDetail" identifier="testSeg3" id="2J9-ro-63B"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -65,23 +110,22 @@
                             <outlet property="delegate" destination="NwY-Mo-AZq" id="z9r-Ar-hk3"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="iconmerce" id="YMA-HP-Kqy">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="emr-vB-8d8">
+                    <navigationItem key="navigationItem" title="iconmerce" id="zKj-Oc-iWb">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="9qp-8w-XOx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="menu:" destination="NwY-Mo-AZq" id="Xzp-Y1-9DD"/>
+                                <action selector="menu:" destination="NwY-Mo-AZq" id="jEo-Ww-0GA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqM-lm-njD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="202"/>
+            <point key="canvasLocation" x="466" y="206"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="JWY-jh-AhC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HZo-wf-5Ut" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="LeftViewController" title="Left View Controller" id="Tu6-b2-URZ" customClass="SidePanelViewController" customModule="iconmerce" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FkH-5z-UuI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -121,10 +165,49 @@
                     </tableView>
                     <connections>
                         <outlet property="menuHeader" destination="EEW-Ls-zKV" id="rFv-c4-qmn"/>
+                        <segue destination="AnS-JN-z2e" kind="presentation" identifier="testSeg" modalTransitionStyle="flipHorizontal" id="YRu-eE-bpQ"/>
+                        <segue destination="rD9-nf-M9B" kind="showDetail" identifier="testSeg2" id="Dix-g5-Aoa"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZo-wf-5Ut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="490" y="966"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bUE-eH-59d">
+            <objects>
+                <viewController id="rD9-nf-M9B" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qlm-gj-yC4"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Kx-eC-0c9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q3x-re-KAp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yur-Z0-dcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1450" y="-29"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="B21-92-0CD">
+            <objects>
+                <viewController id="AnS-JN-z2e" customClass="ContainerViewController" customModule="iconmerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S8Y-kk-0kh"/>
+                        <viewControllerLayoutGuide type="bottom" id="xVM-f8-Rsx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MaS-u6-KxM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eM4-j4-7Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="731"/>
         </scene>
     </scenes>
     <resources>

@@ -19,6 +19,8 @@ class SidePanelViewController: UITableViewController {
     
     let menuTitles: [String] = ["Gallery", "Popular", "Sign Up", "Login"]
     
+    var icons: Icons?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
@@ -42,6 +44,25 @@ class SidePanelViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedNavItem = menuTitles[indexPath.row]
         delegate?.navItemSelected(selectedNavItem)
+        if selectedNavItem == "Gallery" {
+            performSegueWithIdentifier("testSeg", sender: nil)
+        }
+        else if selectedNavItem == "Popular" {
+            performSegueWithIdentifier("testSeg", sender: nil)
+        }
+        else if selectedNavItem == "Sign Up" {
+            
+        }
+        else if selectedNavItem == "Login" {
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "testSeg" {
+            let dest = segue.destinationViewController as! ContainerViewController
+            dest.icons = icons
+        }
     }
     
 }

@@ -14,6 +14,8 @@
 		9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67911CBB1E99009D807A /* charging_icon.png */; };
 		9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67931CBB1EA2009D807A /* exit_icon.png */; };
 		9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67951CBB1EAD009D807A /* streetLights_icon.png */; };
+		9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */; };
+		9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */; };
 		9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */; };
 		9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */; };
 		9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		9C4E67911CBB1E99009D807A /* charging_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charging_icon.png; sourceTree = "<group>"; };
 		9C4E67931CBB1EA2009D807A /* exit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_icon.png; sourceTree = "<group>"; };
 		9C4E67951CBB1EAD009D807A /* streetLights_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streetLights_icon.png; sourceTree = "<group>"; };
+		9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconContainerViewController.swift; sourceTree = "<group>"; };
+		9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCenterViewController.swift; sourceTree = "<group>"; };
 		9C7EEBCD1CB0A8F600A0F3A2 /* iconmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconmerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */,
 				9C7EEC031CB0EF9B00A0F3A2 /* SidePanelViewController.swift */,
 				9C4E67891CBAE9A2009D807A /* IconModel.swift */,
+				9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */,
+				9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -294,11 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */,
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
 				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
+				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
 				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
 				9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */,
 			);

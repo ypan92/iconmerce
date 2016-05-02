@@ -9,18 +9,18 @@
 import UIKit
 
 
-enum SlideOutState {
+enum SlideOutState2 {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
 }
 
-class ContainerViewController: UIViewController {
+class IconContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
-    var centerViewController: CenterViewController!
+    var centerViewController: IconCenterViewController!
     
-    var currentState: SlideOutState = .BothCollapsed
+    var currentState: SlideOutState2 = .BothCollapsed
     var leftViewController: SidePanelViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
@@ -31,7 +31,7 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        centerViewController = UIStoryboard.centerViewController()
+        centerViewController = UIStoryboard.iconCenterViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
         
@@ -49,16 +49,16 @@ class ContainerViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
-extension ContainerViewController: CenterViewControllerDelegate {
+extension IconContainerViewController: IconCenterViewControllerDelegate {
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -111,7 +111,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
             self.centerNavigationController.view.frame.origin.x = targetPosition
-        }, completion: completion)
+            }, completion: completion)
     }
     
 }
@@ -127,8 +127,8 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SidePanelViewController
     }
     
-    class func centerViewController() -> CenterViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController") as? CenterViewController
+    class func iconCenterViewController() -> IconCenterViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("IconCenterViewController") as? IconCenterViewController
     }
     
 }
