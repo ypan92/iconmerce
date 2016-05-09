@@ -127,14 +127,23 @@ class CenterViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let iconSelected = icons?.icons[indexPath.row]
-        performSegueWithIdentifier("testSeg3", sender: nil)
+        /*let iconSelected = icons?.icons[indexPath.row]
+        performSegueWithIdentifier("testSeg3", sender: nil)*/
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            performSegueWithIdentifier("testSeg3", sender: cell)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "testSeg3" {
             let dest = segue.destinationViewController as! IconContainerViewController
             dest.icons = icons
+            
+            let cell = sender as! IconCollectionViewCell
+            let indexPath = self.collectionView?.indexPathForCell(cell)
+            let targetIcon = icons?.icons[(indexPath?.row)!]
+            dest.icon = targetIcon
+            
         }
     }
     

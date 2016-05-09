@@ -18,8 +18,11 @@ class SidePanelViewController: UITableViewController {
     var delegate: SidePanelViewControllerDelegate?
     
     let menuTitles: [String] = ["Gallery", "Popular", "Sign Up", "Login"]
+    let loggedInTitles: [String] = ["Gallery", "Popular", "Profile", "Past Purchases"]
     
     var icons: Icons?
+    
+    var loggedIn: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,16 +54,24 @@ class SidePanelViewController: UITableViewController {
             performSegueWithIdentifier("testSeg", sender: nil)
         }
         else if selectedNavItem == "Sign Up" {
-            
+            performSegueWithIdentifier("testSeg2", sender: nil)
         }
         else if selectedNavItem == "Login" {
-            
+            performSegueWithIdentifier("testSeg4", sender: nil)
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "testSeg" {
             let dest = segue.destinationViewController as! ContainerViewController
+            dest.icons = icons
+        }
+        else if segue.identifier == "testSeg2" {
+            let dest = segue.destinationViewController as! SignupContainerViewController
+            dest.icons = icons
+        }
+        else if segue.identifier == "testSeg4" {
+            let dest = segue.destinationViewController as! LoginContainerViewController
             dest.icons = icons
         }
     }

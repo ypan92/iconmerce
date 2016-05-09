@@ -8,35 +8,31 @@
 
 import UIKit
 
-
-enum SlideOutState2 {
+enum SlideOutState4 {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
 }
 
-class IconContainerViewController: UIViewController {
+class LoginContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
-    var centerViewController: IconCenterViewController!
+    var centerViewController: LoginCenterViewController!
     
-    var currentState: SlideOutState2 = .BothCollapsed
+    var currentState: SlideOutState4 = .BothCollapsed
     var leftViewController: SidePanelViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
     var icons: Icons?
     
-    var icon: Icon?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        centerViewController = UIStoryboard.iconCenterViewController()
+        centerViewController = UIStoryboard.loginCenterViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
-        centerViewController.icon = icon
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
@@ -61,7 +57,7 @@ class IconContainerViewController: UIViewController {
     
 }
 
-extension IconContainerViewController: IconCenterViewControllerDelegate {
+extension LoginContainerViewController: LoginCenterViewControllerDelegate {
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -130,8 +126,8 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SidePanelViewController
     }
     
-    class func iconCenterViewController() -> IconCenterViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("IconCenterViewController") as? IconCenterViewController
+    class func loginCenterViewController() -> LoginCenterViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("LoginCenterViewController") as? LoginCenterViewController
     }
     
 }

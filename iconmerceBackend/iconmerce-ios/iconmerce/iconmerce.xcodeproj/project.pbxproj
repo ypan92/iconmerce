@@ -11,7 +11,7 @@
 		9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */; };
 		9C4E678E1CBB1B85009D807A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678D1CBB1B85009D807A /* star.png */; };
 		9C4E67901CBB1E89009D807A /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678F1CBB1E89009D807A /* chest.png */; };
-		9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67911CBB1E99009D807A /* charging_icon.png */; };
+		9C4E67921CBB1E99009D807A /* charging_iconcopy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67911CBB1E99009D807A /* charging_iconcopy.png */; };
 		9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67931CBB1EA2009D807A /* exit_icon.png */; };
 		9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67951CBB1EAD009D807A /* streetLights_icon.png */; };
 		9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */; };
@@ -26,6 +26,11 @@
 		9C7EEBF41CB0A8F600A0F3A2 /* iconmerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBF31CB0A8F600A0F3A2 /* iconmerceUITests.swift */; };
 		9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */; };
 		9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEC031CB0EF9B00A0F3A2 /* SidePanelViewController.swift */; };
+		9CDCBE7D1CDEEFD60073A005 /* SignupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE7C1CDEEFD60073A005 /* SignupContainerViewController.swift */; };
+		9CDCBE7F1CDEEFE20073A005 /* SignupCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE7E1CDEEFE20073A005 /* SignupCenterViewController.swift */; };
+		9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */; };
+		9CDCBE851CDF48360073A005 /* LoginCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */; };
+		9CDCBE871CDFF4F80073A005 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +55,7 @@
 		9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9C4E678D1CBB1B85009D807A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		9C4E678F1CBB1E89009D807A /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
-		9C4E67911CBB1E99009D807A /* charging_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charging_icon.png; sourceTree = "<group>"; };
+		9C4E67911CBB1E99009D807A /* charging_iconcopy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charging_iconcopy.png; sourceTree = "<group>"; };
 		9C4E67931CBB1EA2009D807A /* exit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_icon.png; sourceTree = "<group>"; };
 		9C4E67951CBB1EAD009D807A /* streetLights_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streetLights_icon.png; sourceTree = "<group>"; };
 		9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconContainerViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +76,11 @@
 		9C7EEBF51CB0A8F600A0F3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		9C7EEC031CB0EF9B00A0F3A2 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		9CDCBE7C1CDEEFD60073A005 /* SignupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupContainerViewController.swift; sourceTree = "<group>"; };
+		9CDCBE7E1CDEEFE20073A005 /* SignupCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupCenterViewController.swift; sourceTree = "<group>"; };
+		9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContainerViewController.swift; sourceTree = "<group>"; };
+		9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCenterViewController.swift; sourceTree = "<group>"; };
+		9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,16 +131,12 @@
 		9C7EEBCF1CB0A8F600A0F3A2 /* iconmerce */ = {
 			isa = PBXGroup;
 			children = (
+				9CDCBE811CDF46F30073A005 /* img */,
 				9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */,
 				9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */,
 				9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */,
 				9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */,
 				9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */,
-				9C4E67931CBB1EA2009D807A /* exit_icon.png */,
-				9C4E678D1CBB1B85009D807A /* star.png */,
-				9C4E67951CBB1EAD009D807A /* streetLights_icon.png */,
-				9C4E67911CBB1E99009D807A /* charging_icon.png */,
-				9C4E678F1CBB1E89009D807A /* chest.png */,
 				9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */,
 				9C7EEBDF1CB0A8F600A0F3A2 /* Info.plist */,
 				9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */,
@@ -139,6 +145,11 @@
 				9C4E67891CBAE9A2009D807A /* IconModel.swift */,
 				9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */,
 				9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */,
+				9CDCBE7C1CDEEFD60073A005 /* SignupContainerViewController.swift */,
+				9CDCBE7E1CDEEFE20073A005 /* SignupCenterViewController.swift */,
+				9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */,
+				9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */,
+				9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -159,6 +170,18 @@
 				9C7EEBF51CB0A8F600A0F3A2 /* Info.plist */,
 			);
 			path = iconmerceUITests;
+			sourceTree = "<group>";
+		};
+		9CDCBE811CDF46F30073A005 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				9C4E67931CBB1EA2009D807A /* exit_icon.png */,
+				9C4E678D1CBB1B85009D807A /* star.png */,
+				9C4E67951CBB1EAD009D807A /* streetLights_icon.png */,
+				9C4E67911CBB1E99009D807A /* charging_iconcopy.png */,
+				9C4E678F1CBB1E89009D807A /* chest.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,7 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */,
-				9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */,
+				9C4E67921CBB1E99009D807A /* charging_iconcopy.png in Resources */,
 				9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */,
 				9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */,
 				9C4E678E1CBB1B85009D807A /* star.png in Resources */,
@@ -301,11 +324,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */,
+				9CDCBE851CDF48360073A005 /* LoginCenterViewController.swift in Sources */,
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
+				9CDCBE7F1CDEEFE20073A005 /* SignupCenterViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
 				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
+				9CDCBE7D1CDEEFD60073A005 /* SignupContainerViewController.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
+				9CDCBE871CDFF4F80073A005 /* ShoppingCartViewController.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
+				9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */,
 				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
 				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
 				9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */,

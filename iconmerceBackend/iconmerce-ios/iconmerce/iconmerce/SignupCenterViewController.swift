@@ -9,19 +9,14 @@
 import UIKit
 
 @objc
-protocol IconCenterViewControllerDelegate {
+protocol SignupCenterViewControllerDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
 }
 
 
-class IconCenterViewController: UIViewController {
-    
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var info: UILabel!
+class SignupCenterViewController: UIViewController {
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -31,9 +26,7 @@ class IconCenterViewController: UIViewController {
         return true
     }()
     
-    var delegate: IconCenterViewControllerDelegate?
-    
-    var icon: Icon?
+    var delegate: SignupCenterViewControllerDelegate?
     
     var icons: Icons? {
         didSet {
@@ -77,23 +70,11 @@ class IconCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let prc = String(format:"%.2f", (icon?.price)!)
-        name.text = icon?.name
-        price.text = "$\(prc)"
-        des.text = icon?.description*/
-        
-        let img = UIImage(named: (icon?.fileName)!)
-        image.image = img
-        name.text = (icon?.name)!
-        let cost = String(format:"%.2f", (icon?.price)!)
-        price.text = "$\(cost)"
-        info.text = (icon?.description)!
-        
     }
     
 }
 
-extension IconCenterViewController: SidePanelViewControllerDelegate {
+extension SignupCenterViewController: SidePanelViewControllerDelegate {
     func navItemSelected(title: String) {
         delegate?.collapseSidePanels?()
     }

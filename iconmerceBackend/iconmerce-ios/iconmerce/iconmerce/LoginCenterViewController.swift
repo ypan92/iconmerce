@@ -9,19 +9,24 @@
 import UIKit
 
 @objc
-protocol IconCenterViewControllerDelegate {
+protocol LoginCenterViewControllerDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
 }
 
 
-class IconCenterViewController: UIViewController {
+class LoginCenterViewController: UIViewController {
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var info: UILabel!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    
+    @IBAction func login(sender: AnyObject) {
+        let email = emailField.text
+        let password = passwordField.text
+        
+    }
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -31,9 +36,7 @@ class IconCenterViewController: UIViewController {
         return true
     }()
     
-    var delegate: IconCenterViewControllerDelegate?
-    
-    var icon: Icon?
+    var delegate: LoginCenterViewControllerDelegate?
     
     var icons: Icons? {
         didSet {
@@ -77,23 +80,11 @@ class IconCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let prc = String(format:"%.2f", (icon?.price)!)
-        name.text = icon?.name
-        price.text = "$\(prc)"
-        des.text = icon?.description*/
-        
-        let img = UIImage(named: (icon?.fileName)!)
-        image.image = img
-        name.text = (icon?.name)!
-        let cost = String(format:"%.2f", (icon?.price)!)
-        price.text = "$\(cost)"
-        info.text = (icon?.description)!
-        
     }
     
 }
 
-extension IconCenterViewController: SidePanelViewControllerDelegate {
+extension LoginCenterViewController: SidePanelViewControllerDelegate {
     func navItemSelected(title: String) {
         delegate?.collapseSidePanels?()
     }
