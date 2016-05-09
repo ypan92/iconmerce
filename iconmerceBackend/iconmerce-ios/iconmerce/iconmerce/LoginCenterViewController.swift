@@ -21,11 +21,33 @@ class LoginCenterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    var user: User?
+    
+    let userModel: UserLoader = UserLoader()
     
     @IBAction func login(sender: AnyObject) {
         let email = emailField.text
         let password = passwordField.text
         
+        let tempUser = User()
+        tempUser.email = email
+        tempUser.password = password
+        userModel.user = tempUser
+        
+        user = userModel.user
+        
+        if user != nil {
+            performSegueWithIdentifier("testSeg5", sender: nil)
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "testSeg5" {
+            let dest = segue.destinationViewController as! ContainerViewController
+            dest.user = user
+            dest.icons = icons
+        }
     }
     
     var loadDarkNavBar: Bool = {

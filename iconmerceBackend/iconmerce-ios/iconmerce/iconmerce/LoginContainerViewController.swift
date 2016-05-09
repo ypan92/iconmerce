@@ -26,6 +26,8 @@ class LoginContainerViewController: UIViewController {
     
     var icons: Icons?
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,6 +77,7 @@ extension LoginContainerViewController: LoginCenterViewControllerDelegate {
         if leftViewController == nil {
             leftViewController = UIStoryboard.leftViewController()
             leftViewController?.icons = icons
+            leftViewController?.user = user
             addChildSidePanelController(leftViewController!)
         }
     }

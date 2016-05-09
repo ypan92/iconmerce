@@ -31,6 +31,7 @@
 		9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */; };
 		9CDCBE851CDF48360073A005 /* LoginCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */; };
 		9CDCBE871CDFF4F80073A005 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */; };
+		9CDCBE891CE0120D0073A005 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBE881CE0120D0073A005 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContainerViewController.swift; sourceTree = "<group>"; };
 		9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCenterViewController.swift; sourceTree = "<group>"; };
 		9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		9CDCBE881CE0120D0073A005 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				9CDCBE821CDF47BD0073A005 /* LoginContainerViewController.swift */,
 				9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */,
 				9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */,
+				9CDCBE881CE0120D0073A005 /* UserModel.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */,
 				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
 				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
+				9CDCBE891CE0120D0073A005 /* UserModel.swift in Sources */,
 				9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

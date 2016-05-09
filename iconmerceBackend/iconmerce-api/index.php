@@ -52,6 +52,33 @@ $app->get('/users/:id', function($id) use($app, $db) {
 	}
 });
 
+$app->get('/user/:email/:password', function($email, $password) use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$user = $db->users()->where('email', $email);
+	if ($data = $user->fetch()) {
+		if (password_verify($password, $data['password']) || $password == $data['password']) {
+			echo json_encode(array (
+				'user_id' => $data['user_id'],
+				'username' => $data['username'],
+				'password' => $data['password'],
+				'email' => $data['email']
+			));
+		}
+		else {
+			echo json_encode(array (
+				'status' => false,
+				'message' => 'Password $password is incorrect'
+			));
+		}
+	}
+	else {
+		echo json_encode(array (
+			'status' => false,
+			'message' => "Email $email does not exist"
+		));
+	}
+});
+
 $app->get('/products', function() use($app, $db) {
 	$products = array();
 	foreach($db->products() as $product) {

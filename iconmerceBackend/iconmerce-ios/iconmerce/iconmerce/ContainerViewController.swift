@@ -27,6 +27,8 @@ class ContainerViewController: UIViewController {
     
     var icons: Icons?
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -76,6 +78,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         if leftViewController == nil {
             leftViewController = UIStoryboard.leftViewController()
             leftViewController?.icons = icons
+            leftViewController?.user = user
             addChildSidePanelController(leftViewController!)
         }
     }

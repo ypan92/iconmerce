@@ -18,11 +18,11 @@ class SidePanelViewController: UITableViewController {
     var delegate: SidePanelViewControllerDelegate?
     
     let menuTitles: [String] = ["Gallery", "Popular", "Sign Up", "Login"]
-    let loggedInTitles: [String] = ["Gallery", "Popular", "Profile", "Past Purchases"]
+    let loggedInTitles: [String] = ["Gallery", "Popular", "Profile", "Past Purchases", "Logout"]
     
     var icons: Icons?
     
-    var loggedIn: Bool?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,29 +35,59 @@ class SidePanelViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if user != nil {
+            return loggedInTitles.count
+        }
         return menuTitles.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("navCell", forIndexPath: indexPath) as! NavCell
-        cell.configureForNav(menuTitles[indexPath.row])
+        if user != nil {
+            cell.configureForNav(loggedInTitles[indexPath.row])
+        }
+        else {
+            cell.configureForNav(menuTitles[indexPath.row])
+        }
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedNavItem = menuTitles[indexPath.row]
-        delegate?.navItemSelected(selectedNavItem)
-        if selectedNavItem == "Gallery" {
-            performSegueWithIdentifier("testSeg", sender: nil)
+        if user != nil {
+            let selectedNavItem = loggedInTitles[indexPath.row]
+            delegate?.navItemSelected(selectedNavItem)
+            if selectedNavItem == "Gallery" {
+                performSegueWithIdentifier("testSeg", sender: nil)
+            }
+            else if selectedNavItem == "Popular" {
+                performSegueWithIdentifier("testSeg", sender: nil)
+            }
+            else if selectedNavItem == "Profile" {
+                
+            }
+            else if selectedNavItem == "Past Purchases" {
+                
+            }
+            else if selectedNavItem == "Logout" {
+                user = nil
+                performSegueWithIdentifier("testSeg4", sender: nil)
+            }
         }
-        else if selectedNavItem == "Popular" {
-            performSegueWithIdentifier("testSeg", sender: nil)
-        }
-        else if selectedNavItem == "Sign Up" {
-            performSegueWithIdentifier("testSeg2", sender: nil)
-        }
-        else if selectedNavItem == "Login" {
-            performSegueWithIdentifier("testSeg4", sender: nil)
+        else {
+            let selectedNavItem = menuTitles[indexPath.row]
+            delegate?.navItemSelected(selectedNavItem)
+            if selectedNavItem == "Gallery" {
+                performSegueWithIdentifier("testSeg", sender: nil)
+            }
+            else if selectedNavItem == "Popular" {
+                performSegueWithIdentifier("testSeg", sender: nil)
+            }
+            else if selectedNavItem == "Sign Up" {
+                performSegueWithIdentifier("testSeg2", sender: nil)
+            }
+            else if selectedNavItem == "Login" {
+                performSegueWithIdentifier("testSeg4", sender: nil)
+            }
         }
     }
     
@@ -65,6 +95,7 @@ class SidePanelViewController: UITableViewController {
         if segue.identifier == "testSeg" {
             let dest = segue.destinationViewController as! ContainerViewController
             dest.icons = icons
+            dest.user = user
         }
         else if segue.identifier == "testSeg2" {
             let dest = segue.destinationViewController as! SignupContainerViewController
@@ -73,6 +104,7 @@ class SidePanelViewController: UITableViewController {
         else if segue.identifier == "testSeg4" {
             let dest = segue.destinationViewController as! LoginContainerViewController
             dest.icons = icons
+            dest.user = user
         }
     }
     
