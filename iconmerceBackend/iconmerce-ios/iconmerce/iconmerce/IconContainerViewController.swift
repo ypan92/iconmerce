@@ -131,5 +131,9 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("IconCenterViewController") as? IconCenterViewController
     }
     
+    class func loginViewController() -> LoginViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("LogingViewController") as? LoginViewController
+    }
+    
 }
 

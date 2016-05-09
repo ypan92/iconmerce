@@ -13,6 +13,7 @@ protocol CenterViewControllerDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
+    optional func randomPrint()
 }
 
 class IconCollectionViewCell: UICollectionViewCell {
@@ -74,6 +75,7 @@ class CenterViewController: UICollectionViewController {
     }
     
     @IBAction func menu(sender: AnyObject) {
+        print("Left view clicked\n")
         delegate?.toggleLeftPanel?()
     }
     
@@ -127,11 +129,13 @@ class CenterViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let iconSelected = icons?.icons[indexPath.row]
+        
+       // let iconSelected = icons?.icons[indexPath.row]
         performSegueWithIdentifier("testSeg3", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        delegate?.randomPrint?()
         if segue.identifier == "testSeg3" {
             let dest = segue.destinationViewController as! IconContainerViewController
             dest.icons = icons
@@ -140,11 +144,3 @@ class CenterViewController: UICollectionViewController {
     
 }
 
-extension CenterViewController: SidePanelViewControllerDelegate {
-    func navItemSelected(title: String) {
-        
-        
-        
-        delegate?.collapseSidePanels?()
-    }
-}

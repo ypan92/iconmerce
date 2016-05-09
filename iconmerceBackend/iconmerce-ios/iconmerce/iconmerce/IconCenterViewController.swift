@@ -82,12 +82,3 @@ class IconCenterViewController: UIViewController {
     }
     
 }
-
-extension IconCenterViewController: SidePanelViewControllerDelegate {
-    func navItemSelected(title: String) {
-        
-        
-        
-        delegate?.collapseSidePanels?()
-    }
-}

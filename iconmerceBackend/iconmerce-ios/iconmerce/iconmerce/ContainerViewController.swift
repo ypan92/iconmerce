@@ -13,6 +13,8 @@ enum SlideOutState {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
+    case LoginPanelExpanded
+    case SignupPanelExpanded
 }
 
 class ContainerViewController: UIViewController {
@@ -22,6 +24,8 @@ class ContainerViewController: UIViewController {
     
     var currentState: SlideOutState = .BothCollapsed
     var leftViewController: SidePanelViewController?
+    var loginViewController: LoginViewController?
+    var signupViewController: SignupViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
@@ -58,7 +62,45 @@ class ContainerViewController: UIViewController {
 
 }
 
-extension ContainerViewController: CenterViewControllerDelegate {
+extension ContainerViewController: CenterViewControllerDelegate, SidePanelViewControllerDelegate, LoginViewControllerDelegate, SignupViewControllerDelegate {
+    
+    func randomPrint() {
+        print("This fucken works\n")
+    }
+    
+    func closeLoginPanel() {
+        animateLoginPanel(false)
+    }
+    
+    func closeSignupPanel() {
+        animateSignupPanel(false)
+    }
+    
+    func closeLeftPanel() {
+        animateLeftPanel(false)
+    }
+    
+    func toggleSignupPanel() {
+        let notAreadyExpanded = (currentState != .SignupPanelExpanded)
+        
+        if notAreadyExpanded {
+            addSignupViewController()
+        }
+        animateSignupPanel(notAreadyExpanded)
+    }
+    
+    func toggleLoginPanel() {
+        let notAlreadyExpanded =  (currentState != .LoginPanelExpanded)
+
+        print("good so far\n")
+        
+        if notAlreadyExpanded {
+            print("Adding controller\n")
+            addLoginViewController()
+        }
+        print("Animating Login view")
+        animateLoginPanel(notAlreadyExpanded)
+    }
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -75,8 +117,26 @@ extension ContainerViewController: CenterViewControllerDelegate {
     func addLeftPanelViewController() {
         if leftViewController == nil {
             leftViewController = UIStoryboard.leftViewController()
+            leftViewController?.delegate = self
             leftViewController?.icons = icons
             addChildSidePanelController(leftViewController!)
+        }
+    }
+    
+    func addLoginViewController() {
+        if loginViewController == nil {
+            print("Instatiating login view\n")
+            loginViewController = UIStoryboard.loginViewController()
+            loginViewController?.delegate = self
+            addChildLoginPanelController(loginViewController!)
+        }
+    }
+    
+    func addSignupViewController() {
+        if signupViewController == nil {
+            signupViewController = UIStoryboard.signupViewController()
+            signupViewController?.delegate = self
+            addChildSignupPanelController(signupViewController!)
         }
     }
     
@@ -84,6 +144,18 @@ extension ContainerViewController: CenterViewControllerDelegate {
         view.insertSubview(sidePanelController.view, atIndex: 0)
         addChildViewController(sidePanelController)
         sidePanelController.didMoveToParentViewController(self)
+    }
+    
+    func addChildLoginPanelController(loginPanelController: LoginViewController) {
+        view.insertSubview(loginPanelController.view, atIndex: 0)
+        addChildViewController(loginPanelController)
+        loginPanelController.didMoveToParentViewController(self)
+    }
+    
+    func addChildSignupPanelController(signupPanelController: SignupViewController) {
+        view.insertSubview(signupPanelController.view, atIndex: 0)
+        addChildViewController(signupPanelController)
+        signupPanelController.didMoveToParentViewController(self)
     }
     
     func addRightPanelViewController() {
@@ -100,6 +172,32 @@ extension ContainerViewController: CenterViewControllerDelegate {
                 self.currentState = .BothCollapsed
                 self.leftViewController!.view.removeFromSuperview()
                 self.leftViewController = nil
+            }
+        }
+    }
+    
+    func animateLoginPanel(shouldExpand: Bool) {
+        if shouldExpand {
+            currentState = .LoginPanelExpanded
+            animateCenterPanelXPosition(CGRectGetWidth(centerNavigationController.view.frame))
+        } else {
+            animateCenterPanelXPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.loginViewController!.view.removeFromSuperview()
+                self.loginViewController = nil
+            }
+        }
+    }
+    
+    func animateSignupPanel(shouldExpand: Bool) {
+        if shouldExpand {
+            currentState = .SignupPanelExpanded
+            animateCenterPanelXPosition(CGRectGetWidth(centerNavigationController.view.frame))
+        } else {
+            animateCenterPanelXPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.signupViewController!.view.removeFromSuperview()
+                self.signupViewController = nil
             }
         }
     }
@@ -129,6 +227,14 @@ private extension UIStoryboard {
     
     class func centerViewController() -> CenterViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController") as? CenterViewController
+    }
+    
+    class func loginViewController() -> LoginViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("Login") as? LoginViewController
+    }
+    
+    class func signupViewController() -> SignupViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("Signup") as? SignupViewController
     }
     
 }

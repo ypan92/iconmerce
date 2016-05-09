@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990FE0C91CDEC6680092A58F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FE0C81CDEC6680092A58F /* LoginViewController.swift */; };
+		990FE0CB1CDFD6D50092A58F /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FE0CA1CDFD6D50092A58F /* LogoutViewController.swift */; };
+		990FE0CD1CDFD76D0092A58F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FE0CC1CDFD76D0092A58F /* SignupViewController.swift */; };
+		990FE0D01CDFF8E50092A58F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 990FE0CE1CDFF8E50092A58F /* Main.storyboard */; };
 		9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E67891CBAE9A2009D807A /* IconModel.swift */; };
 		9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */; };
 		9C4E678E1CBB1B85009D807A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678D1CBB1B85009D807A /* star.png */; };
@@ -18,7 +22,6 @@
 		9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */; };
 		9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */; };
 		9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */; };
-		9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */; };
 		9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */; };
 		9C7EEBDB1CB0A8F600A0F3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */; };
 		9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */; };
@@ -46,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990FE0C81CDEC6680092A58F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		990FE0CA1CDFD6D50092A58F /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		990FE0CC1CDFD76D0092A58F /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		990FE0CF1CDFF8E50092A58F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C4E67891CBAE9A2009D807A /* IconModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9C4E678D1CBB1B85009D807A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
@@ -58,7 +65,6 @@
 		9C7EEBCD1CB0A8F600A0F3A2 /* iconmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconmerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		9C7EEBD51CB0A8F600A0F3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C7EEBD81CB0A8F600A0F3A2 /* iconmerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iconmerce.xcdatamodel; sourceTree = "<group>"; };
 		9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C7EEBDD1CB0A8F600A0F3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +130,9 @@
 				9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */,
 				9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */,
 				9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */,
-				9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */,
+				990FE0CA1CDFD6D50092A58F /* LogoutViewController.swift */,
+				990FE0C81CDEC6680092A58F /* LoginViewController.swift */,
+				990FE0CC1CDFD76D0092A58F /* SignupViewController.swift */,
 				9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */,
 				9C4E67931CBB1EA2009D807A /* exit_icon.png */,
 				9C4E678D1CBB1B85009D807A /* star.png */,
@@ -132,6 +140,7 @@
 				9C4E67911CBB1E99009D807A /* charging_icon.png */,
 				9C4E678F1CBB1E89009D807A /* chest.png */,
 				9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */,
+				990FE0CE1CDFF8E50092A58F /* Main.storyboard */,
 				9C7EEBDF1CB0A8F600A0F3A2 /* Info.plist */,
 				9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */,
 				9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */,
@@ -271,11 +280,11 @@
 				9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */,
 				9C4E67921CBB1E99009D807A /* charging_icon.png in Resources */,
 				9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */,
+				990FE0D01CDFF8E50092A58F /* Main.storyboard in Resources */,
 				9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */,
 				9C4E678E1CBB1B85009D807A /* star.png in Resources */,
 				9C7EEBDB1CB0A8F600A0F3A2 /* Assets.xcassets in Resources */,
 				9C4E67901CBB1E89009D807A /* chest.png in Resources */,
-				9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,10 +313,13 @@
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
 				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
+				990FE0CB1CDFD6D50092A58F /* LogoutViewController.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
+				990FE0CD1CDFD76D0092A58F /* SignupViewController.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
 				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
 				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
+				990FE0C91CDEC6680092A58F /* LoginViewController.swift in Sources */,
 				9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,10 +356,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */ = {
+		990FE0CE1CDFF8E50092A58F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9C7EEBD51CB0A8F600A0F3A2 /* Base */,
+				990FE0CF1CDFF8E50092A58F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -8,8 +8,11 @@
 
 import UIKit
 
+@objc
 protocol SidePanelViewControllerDelegate {
-    func navItemSelected(title: String)
+    optional func randomPrint()
+    optional func closeLeftPanel()
+    optional func toggleLoginPanel()
 }
 
 class SidePanelViewController: UITableViewController {
@@ -18,6 +21,7 @@ class SidePanelViewController: UITableViewController {
     var delegate: SidePanelViewControllerDelegate?
     
     let menuTitles: [String] = ["Gallery", "Popular", "Sign Up", "Login"]
+    let optionTitles: [String] = ["Gallery", "Popular", "Logout"]
     
     var icons: Icons?
     
@@ -43,18 +47,16 @@ class SidePanelViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedNavItem = menuTitles[indexPath.row]
-        delegate?.navItemSelected(selectedNavItem)
+        print("Option on sidebar: " + selectedNavItem)
+        
         if selectedNavItem == "Gallery" {
             performSegueWithIdentifier("testSeg", sender: nil)
         }
         else if selectedNavItem == "Popular" {
             performSegueWithIdentifier("testSeg", sender: nil)
-        }
-        else if selectedNavItem == "Sign Up" {
-            
-        }
-        else if selectedNavItem == "Login" {
-            
+        } else if selectedNavItem == "Login" {
+            delegate?.closeLeftPanel?()
+            delegate?.toggleLoginPanel?()
         }
     }
     
@@ -78,3 +80,4 @@ class NavCell: UITableViewCell {
     }
     
 }
+
