@@ -1,28 +1,34 @@
 //
-//  CenterViewController.swift
+//  ProfileCenterViewController.swift
 //  iconmerce
 //
-//  Created by Yang Pan on 4/2/16.
+//  Created by Yang Pan on 5/16/16.
 //  Copyright © 2016 iconmerce. All rights reserved.
 //
 
 import UIKit
 
 @objc
-protocol IconCenterViewControllerDelegate {
+protocol ProfileCenterViewControllerDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
 }
 
 
-class IconCenterViewController: UIViewController {
+class ProfileCenterViewController: UIViewController {
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var info: UILabel!
-    @IBOutlet weak var addButton: UIButton!
+    
+    @IBOutlet weak var helloLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    var user: User?
+    
+    let userModel: UserLoader = UserLoader()
+    
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -32,11 +38,7 @@ class IconCenterViewController: UIViewController {
         return true
     }()
     
-    var delegate: IconCenterViewControllerDelegate?
-    
-    var icon: Icon?
-    
-    var user: User?
+    var delegate: ProfileCenterViewControllerDelegate?
     
     var icons: Icons? {
         didSet {
@@ -77,28 +79,24 @@ class IconCenterViewController: UIViewController {
         delegate?.toggleLeftPanel?()
     }
     
+    @IBAction func submit(sender: AnyObject) {
+        let newEmail = emailField.text
+        let newPassword = passwordField.text
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let img = UIImage(named: (icon?.fileName)!)
-        image.image = img
-        name.text = (icon?.name)!
-        let cost = String(format:"%.2f", (icon?.price)!)
-        price.text = "$\(cost)"
-        info.text = (icon?.description)!
-        
-        if user != nil {
-            addButton.hidden = false
-        }
-        else {
-            addButton.hidden = true
-        }
+        helloLabel.text = "Hello \((user?.username)!)"
+        usernameLabel.text = (user?.username)!
+        emailLabel.text = (user?.email)!
         
     }
     
 }
 
-extension IconCenterViewController: SidePanelViewControllerDelegate {
+extension ProfileCenterViewController: SidePanelViewControllerDelegate {
     func navItemSelected(title: String) {
         delegate?.collapseSidePanels?()
     }

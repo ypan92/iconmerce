@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C35E6561CE9B18700C5C0C8 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */; };
+		9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */; };
+		9C35E65C1CE9D31700C5C0C8 /* Shopping-Cart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */; };
+		9C35E65E1CE9D3F400C5C0C8 /* Shopping-Cart-icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C35E65D1CE9D3F400C5C0C8 /* Shopping-Cart-icon2.png */; };
 		9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E67891CBAE9A2009D807A /* IconModel.swift */; };
 		9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */; };
 		9C4E678E1CBB1B85009D807A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E678D1CBB1B85009D807A /* star.png */; };
@@ -52,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
+		9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCenterViewController.swift; sourceTree = "<group>"; };
+		9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping-Cart-icon.png"; sourceTree = "<group>"; };
+		9C35E65D1CE9D3F400C5C0C8 /* Shopping-Cart-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping-Cart-icon2.png"; sourceTree = "<group>"; };
 		9C4E67891CBAE9A2009D807A /* IconModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9C4E678D1CBB1B85009D807A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
@@ -153,6 +161,8 @@
 				9CDCBE841CDF48360073A005 /* LoginCenterViewController.swift */,
 				9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */,
 				9CDCBE881CE0120D0073A005 /* UserModel.swift */,
+				9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */,
+				9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -178,6 +188,8 @@
 		9CDCBE811CDF46F30073A005 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */,
+				9C35E65D1CE9D3F400C5C0C8 /* Shopping-Cart-icon2.png */,
 				9C4E67931CBB1EA2009D807A /* exit_icon.png */,
 				9C4E678D1CBB1B85009D807A /* star.png */,
 				9C4E67951CBB1EAD009D807A /* streetLights_icon.png */,
@@ -297,11 +309,13 @@
 				9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */,
 				9C4E67921CBB1E99009D807A /* charging_iconcopy.png in Resources */,
 				9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */,
+				9C35E65C1CE9D31700C5C0C8 /* Shopping-Cart-icon.png in Resources */,
 				9C4E67941CBB1EA2009D807A /* exit_icon.png in Resources */,
 				9C4E678E1CBB1B85009D807A /* star.png in Resources */,
 				9C7EEBDB1CB0A8F600A0F3A2 /* Assets.xcassets in Resources */,
 				9C4E67901CBB1E89009D807A /* chest.png in Resources */,
 				9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */,
+				9C35E65E1CE9D3F400C5C0C8 /* Shopping-Cart-icon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,9 +342,11 @@
 			files = (
 				9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */,
 				9CDCBE851CDF48360073A005 /* LoginCenterViewController.swift in Sources */,
+				9C35E6561CE9B18700C5C0C8 /* ProfileContainerViewController.swift in Sources */,
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
 				9CDCBE7F1CDEEFE20073A005 /* SignupCenterViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
+				9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */,
 				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
 				9CDCBE7D1CDEEFD60073A005 /* SignupContainerViewController.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,

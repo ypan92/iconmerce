@@ -27,6 +27,8 @@ class SignupContainerViewController: UIViewController {
     
     var icons: Icons?
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,7 +36,7 @@ class SignupContainerViewController: UIViewController {
         centerViewController = UIStoryboard.signupCenterViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
-        
+        centerViewController.user = user
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)
@@ -76,6 +78,7 @@ extension SignupContainerViewController: SignupCenterViewControllerDelegate {
         if leftViewController == nil {
             leftViewController = UIStoryboard.leftViewController()
             leftViewController?.icons = icons
+            leftViewController?.user = user
             addChildSidePanelController(leftViewController!)
         }
     }

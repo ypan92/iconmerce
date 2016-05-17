@@ -38,6 +38,8 @@ class CenterViewController: UICollectionViewController {
     
     var delegate: CenterViewControllerDelegate?
     
+    var user: User?
+    
     var icons: Icons? {
         didSet {
             if let oldValue = oldValue {
@@ -143,6 +145,8 @@ class CenterViewController: UICollectionViewController {
             let indexPath = self.collectionView?.indexPathForCell(cell)
             let targetIcon = icons?.icons[(indexPath?.row)!]
             dest.icon = targetIcon
+            
+            dest.user = user
             
         }
     }

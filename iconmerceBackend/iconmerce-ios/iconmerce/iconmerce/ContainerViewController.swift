@@ -36,7 +36,7 @@ class ContainerViewController: UIViewController {
         centerViewController = UIStoryboard.centerViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
-        
+        centerViewController.user = user
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)

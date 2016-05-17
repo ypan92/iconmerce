@@ -63,7 +63,7 @@ class SidePanelViewController: UITableViewController {
                 performSegueWithIdentifier("testSeg", sender: nil)
             }
             else if selectedNavItem == "Profile" {
-                
+                performSegueWithIdentifier("testSeg6", sender: nil)
             }
             else if selectedNavItem == "Past Purchases" {
                 
@@ -100,9 +100,15 @@ class SidePanelViewController: UITableViewController {
         else if segue.identifier == "testSeg2" {
             let dest = segue.destinationViewController as! SignupContainerViewController
             dest.icons = icons
+            dest.user = user
         }
         else if segue.identifier == "testSeg4" {
             let dest = segue.destinationViewController as! LoginContainerViewController
+            dest.icons = icons
+            dest.user = user
+        }
+        else if segue.identifier == "testSeg6" {
+            let dest = segue.destinationViewController as! ProfileContainerViewController
             dest.icons = icons
             dest.user = user
         }

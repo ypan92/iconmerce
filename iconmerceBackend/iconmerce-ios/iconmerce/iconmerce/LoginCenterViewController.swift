@@ -34,9 +34,17 @@ class LoginCenterViewController: UIViewController {
         tempUser.password = password
         userModel.user = tempUser
         
-        user = userModel.user
+        while userModel.user?.username == nil {
+            
+        }
+        if userModel.user?.username == "iconmerce:bad" {
+            user = nil
+        }
+        else {
+            user = userModel.user
+        }
         
-        if user != nil {
+        if user != nil && self == self.navigationController!.topViewController {
             performSegueWithIdentifier("testSeg5", sender: nil)
         }
         
@@ -48,6 +56,7 @@ class LoginCenterViewController: UIViewController {
             dest.user = user
             dest.icons = icons
         }
+        print("in seg")
     }
     
     var loadDarkNavBar: Bool = {

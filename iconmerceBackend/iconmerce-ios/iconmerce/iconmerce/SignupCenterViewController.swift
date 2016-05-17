@@ -28,6 +28,8 @@ class SignupCenterViewController: UIViewController {
     
     var delegate: SignupCenterViewControllerDelegate?
     
+    var user: User?
+    
     var icons: Icons? {
         didSet {
             if let oldValue = oldValue {

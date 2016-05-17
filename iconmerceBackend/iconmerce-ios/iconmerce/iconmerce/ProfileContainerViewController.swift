@@ -1,33 +1,30 @@
 //
-//  ViewController.swift
+//  ProfileContainerViewController.swift
 //  iconmerce
 //
-//  Created by Yang Pan on 4/2/16.
+//  Created by Yang Pan on 5/16/16.
 //  Copyright © 2016 iconmerce. All rights reserved.
 //
 
 import UIKit
 
-
-enum SlideOutState2 {
+enum SlideOutState5 {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
 }
 
-class IconContainerViewController: UIViewController {
+class ProfileContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
-    var centerViewController: IconCenterViewController!
+    var centerViewController: ProfileCenterViewController!
     
-    var currentState: SlideOutState2 = .BothCollapsed
+    var currentState: SlideOutState5 = .BothCollapsed
     var leftViewController: SidePanelViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
     var icons: Icons?
-    
-    var icon: Icon?
     
     var user: User?
     
@@ -35,11 +32,11 @@ class IconContainerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        centerViewController = UIStoryboard.iconCenterViewController()
+        centerViewController = UIStoryboard.profileCenterViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
-        centerViewController.icon = icon
         centerViewController.user = user
+        
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)
@@ -63,7 +60,7 @@ class IconContainerViewController: UIViewController {
     
 }
 
-extension IconContainerViewController: IconCenterViewControllerDelegate {
+extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -133,9 +130,10 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SidePanelViewController
     }
     
-    class func iconCenterViewController() -> IconCenterViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("IconCenterViewController") as? IconCenterViewController
+    class func profileCenterViewController() -> ProfileCenterViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("ProfileCenterViewController") as? ProfileCenterViewController
     }
     
 }
+
 
