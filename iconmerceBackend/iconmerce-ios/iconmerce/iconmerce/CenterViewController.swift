@@ -79,6 +79,10 @@ class CenterViewController: UICollectionViewController {
         delegate?.toggleLeftPanel?()
     }
     
+    @IBAction func cart(sender: AnyObject) {
+        delegate?.toggleRightPanel?()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

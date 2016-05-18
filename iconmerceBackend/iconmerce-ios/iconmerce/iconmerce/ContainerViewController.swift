@@ -22,12 +22,15 @@ class ContainerViewController: UIViewController {
     
     var currentState: SlideOutState = .BothCollapsed
     var leftViewController: SidePanelViewController?
+    var rightViewController: ShoppingCartViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
     var icons: Icons?
     
     var user: User?
+    
+    var showCart: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,12 @@ class ContainerViewController: UIViewController {
         
         //let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         //centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
+        
+        if let shouldShowCart = showCart {
+            if shouldShowCart {
+                toggleRightPanel()
+            }
+        }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -71,7 +80,11 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func toggleRightPanel() {
-        //unimplemented
+        let notAlreadyExpanded = (currentState != .RightPanelExpanded)
+        if notAlreadyExpanded {
+            addRightPanelViewController()
+        }
+        animateRightPanel(notAlreadyExpanded)
     }
     
     func addLeftPanelViewController() {
@@ -89,8 +102,19 @@ extension ContainerViewController: CenterViewControllerDelegate {
         sidePanelController.didMoveToParentViewController(self)
     }
     
+    func addChildShoppingCartController(sidePanelController: ShoppingCartViewController) {
+        view.insertSubview(sidePanelController.view, atIndex: 0)
+        addChildViewController(sidePanelController)
+        sidePanelController.didMoveToParentViewController(self)
+    }
+    
     func addRightPanelViewController() {
-        //unimplemented
+        if rightViewController == nil {
+            rightViewController = UIStoryboard.rightViewController()
+            rightViewController?.icons = icons
+            rightViewController?.user = user
+            addChildShoppingCartController(rightViewController!)
+        }
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
@@ -108,7 +132,17 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func animateRightPanel(shouldExpand: Bool) {
-        //unimplemented
+        if shouldExpand {
+            currentState = .RightPanelExpanded
+            animateCenterPanelXPosition(-CGRectGetWidth(centerNavigationController.view.frame) + centerPanelExpandedOffset)
+        }
+        else {
+            animateCenterPanelXPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.rightViewController!.view.removeFromSuperview()
+                self.rightViewController = nil
+            }
+        }
     }
     
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
@@ -126,8 +160,8 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("LeftViewController") as? SidePanelViewController
     }
     
-    class func rightViewController() -> SidePanelViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SidePanelViewController
+    class func rightViewController() -> ShoppingCartViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? ShoppingCartViewController
     }
     
     class func centerViewController() -> CenterViewController? {

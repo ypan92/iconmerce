@@ -22,6 +22,7 @@ class IconContainerViewController: UIViewController {
     
     var currentState: SlideOutState2 = .BothCollapsed
     var leftViewController: SidePanelViewController?
+    var rightViewController: ShoppingCartViewController?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
@@ -74,7 +75,11 @@ extension IconContainerViewController: IconCenterViewControllerDelegate {
     }
     
     func toggleRightPanel() {
-        //unimplemented
+        let notAlreadyExpanded = (currentState != .RightPanelExpanded)
+        if notAlreadyExpanded {
+            addRightPanelViewController()
+        }
+        animateRightPanel(notAlreadyExpanded)
     }
     
     func addLeftPanelViewController() {
@@ -92,8 +97,19 @@ extension IconContainerViewController: IconCenterViewControllerDelegate {
         sidePanelController.didMoveToParentViewController(self)
     }
     
+    func addChildShoppingCartController(sidePanelController: ShoppingCartViewController) {
+        view.insertSubview(sidePanelController.view, atIndex: 0)
+        addChildViewController(sidePanelController)
+        sidePanelController.didMoveToParentViewController(self)
+    }
+    
     func addRightPanelViewController() {
-        //unimplemented
+        if rightViewController == nil {
+            rightViewController = UIStoryboard.rightViewController()
+            rightViewController?.icons = icons
+            rightViewController?.user = user
+            addChildShoppingCartController(rightViewController!)
+        }
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
@@ -111,7 +127,17 @@ extension IconContainerViewController: IconCenterViewControllerDelegate {
     }
     
     func animateRightPanel(shouldExpand: Bool) {
-        //unimplemented
+        if shouldExpand {
+            currentState = .RightPanelExpanded
+            animateCenterPanelXPosition(-CGRectGetWidth(centerNavigationController.view.frame) + centerPanelExpandedOffset)
+        }
+        else {
+            animateCenterPanelXPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.rightViewController!.view.removeFromSuperview()
+                self.rightViewController = nil
+            }
+        }
     }
     
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
@@ -129,8 +155,8 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("LeftViewController") as? SidePanelViewController
     }
     
-    class func rightViewController() -> SidePanelViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? SidePanelViewController
+    class func rightViewController() -> ShoppingCartViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? ShoppingCartViewController
     }
     
     class func iconCenterViewController() -> IconCenterViewController? {

@@ -50,6 +50,11 @@ class LoginCenterViewController: UIViewController {
         
     }
     
+    @IBAction func autoFill(sender: AnyObject) {
+        emailField.text = "ypan01@outlook.com"
+        passwordField.text = "pa$$word"
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "testSeg5" {
             let dest = segue.destinationViewController as! ContainerViewController
@@ -106,6 +111,10 @@ class LoginCenterViewController: UIViewController {
     
     @IBAction func menu(sender: AnyObject) {
         delegate?.toggleLeftPanel?()
+    }
+    
+    @IBAction func cart(sender: AnyObject) {
+        delegate?.toggleRightPanel?()
     }
     
     override func viewDidLoad() {

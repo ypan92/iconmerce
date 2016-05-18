@@ -79,6 +79,10 @@ class ProfileCenterViewController: UIViewController {
         delegate?.toggleLeftPanel?()
     }
     
+    @IBAction func cart(sender: AnyObject) {
+        delegate?.toggleRightPanel?()
+    }
+    
     @IBAction func submit(sender: AnyObject) {
         let newEmail = emailField.text
         let newPassword = passwordField.text

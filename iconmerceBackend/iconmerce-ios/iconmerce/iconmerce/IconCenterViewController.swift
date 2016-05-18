@@ -77,6 +77,17 @@ class IconCenterViewController: UIViewController {
         delegate?.toggleLeftPanel?()
     }
     
+    @IBAction func cart(sender: AnyObject) {
+        delegate?.toggleRightPanel?()
+    }
+    
+    @IBAction func addToCart(sender: AnyObject) {
+        if let usr = user {
+            usr.cartItems.append(icon!)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

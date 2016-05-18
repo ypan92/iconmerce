@@ -20,6 +20,10 @@
 		9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E67951CBB1EAD009D807A /* streetLights_icon.png */; };
 		9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */; };
 		9C7522111CD6D92C004E9D13 /* IconCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */; };
+		9C7830C71CEC0A910070B06F /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7830C61CEC0A910070B06F /* Stripe.framework */; };
+		9C7830C91CEC0AFA0070B06F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7830C81CEC0AFA0070B06F /* PaymentViewController.swift */; };
+		9C7830CC1CEC1DEA0070B06F /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7830CA1CEC1CDF0070B06F /* MGSwipeTableCell.framework */; };
+		9C7830CD1CEC1DEA0070B06F /* MGSwipeTableCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7830CA1CEC1CDF0070B06F /* MGSwipeTableCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */; };
 		9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */; };
 		9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */; };
@@ -55,6 +59,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9C7830CE1CEC1DEA0070B06F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C7830CD1CEC1DEA0070B06F /* MGSwipeTableCell.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
 		9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCenterViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +87,9 @@
 		9C4E67951CBB1EAD009D807A /* streetLights_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streetLights_icon.png; sourceTree = "<group>"; };
 		9C75220E1CD6D8EB004E9D13 /* IconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconContainerViewController.swift; sourceTree = "<group>"; };
 		9C7522101CD6D92C004E9D13 /* IconCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCenterViewController.swift; sourceTree = "<group>"; };
+		9C7830C61CEC0A910070B06F /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stripe.framework; sourceTree = "<group>"; };
+		9C7830C81CEC0AFA0070B06F /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		9C7830CA1CEC1CDF0070B06F /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MGSwipeTableCell.framework; sourceTree = "<group>"; };
 		9C7EEBCD1CB0A8F600A0F3A2 /* iconmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconmerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7830CC1CEC1DEA0070B06F /* MGSwipeTableCell.framework in Frameworks */,
+				9C7830C71CEC0A910070B06F /* Stripe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +164,11 @@
 		9C7EEBCF1CB0A8F600A0F3A2 /* iconmerce */ = {
 			isa = PBXGroup;
 			children = (
+				9C7830CA1CEC1CDF0070B06F /* MGSwipeTableCell.framework */,
+				9C7830C61CEC0A910070B06F /* Stripe.framework */,
 				9CDCBE811CDF46F30073A005 /* img */,
 				9C4E678B1CBAEBE1009D807A /* SwiftyJSON.swift */,
+				9C7830C81CEC0AFA0070B06F /* PaymentViewController.swift */,
 				9C7EEBD01CB0A8F600A0F3A2 /* AppDelegate.swift */,
 				9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */,
 				9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */,
@@ -209,6 +235,7 @@
 				9C7EEBC91CB0A8F600A0F3A2 /* Sources */,
 				9C7EEBCA1CB0A8F600A0F3A2 /* Frameworks */,
 				9C7EEBCB1CB0A8F600A0F3A2 /* Resources */,
+				9C7830CE1CEC1DEA0070B06F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +374,7 @@
 				9CDCBE7F1CDEEFE20073A005 /* SignupCenterViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
 				9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */,
+				9C7830C91CEC0AFA0070B06F /* PaymentViewController.swift in Sources */,
 				9C4E678A1CBAE9A2009D807A /* IconModel.swift in Sources */,
 				9CDCBE7D1CDEEFD60073A005 /* SignupContainerViewController.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
@@ -496,6 +524,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iconmerce",
+				);
 				INFOPLIST_FILE = iconmerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iconmerce;
@@ -507,6 +540,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iconmerce",
+				);
 				INFOPLIST_FILE = iconmerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iconmerce;

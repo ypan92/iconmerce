@@ -12,6 +12,7 @@ class User {
     var username: String?
     var email: String?
     var password: String?
+    var cartItems: [Icon] = []
 }
 
 class UserLoader {
