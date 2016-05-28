@@ -12,6 +12,7 @@ enum SlideOutState5 {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
+    case EditPanelExpanded
 }
 
 class ProfileContainerViewController: UIViewController {
@@ -22,6 +23,7 @@ class ProfileContainerViewController: UIViewController {
     var currentState: SlideOutState5 = .BothCollapsed
     var leftViewController: SidePanelViewController?
     var rightViewController: ShoppingCartViewController?
+    var profileViewController: EditUserProfile?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
@@ -61,7 +63,22 @@ class ProfileContainerViewController: UIViewController {
     
 }
 
-extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
+extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, EditUserProfileDelegate {
+    
+    func closeEditProfileView() {
+        print("Closing Profile View!")
+        animateEditPanelViewController(false)
+    }
+    
+    func toggleEditProfile() {
+        let notAlreadyExpanded = (currentState != .EditPanelExpanded)
+        
+        if notAlreadyExpanded {
+          addEditPanelViewController()
+        }
+        
+        animateEditPanelViewController(notAlreadyExpanded)
+    }
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -76,6 +93,7 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
         if notAlreadyExpanded {
             addRightPanelViewController()
         }
+        
         animateRightPanel(notAlreadyExpanded)
     }
     
@@ -88,10 +106,26 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
         }
     }
     
+    func addEditPanelViewController() {
+        if profileViewController == nil {
+            profileViewController = UIStoryboard.profileViewController()
+            profileViewController?.delegate = self
+            profileViewController?.user = user
+            profileViewController?.icons = icons
+            addChildProfilePanelController(profileViewController!)
+        }
+    }
+    
     func addChildSidePanelController(sidePanelController: SidePanelViewController) {
         view.insertSubview(sidePanelController.view, atIndex: 0)
         addChildViewController(sidePanelController)
         sidePanelController.didMoveToParentViewController(self)
+    }
+    
+    func addChildProfilePanelController(profilePanel: EditUserProfile) {
+        view.insertSubview(profilePanel.view, atIndex: 0)
+        addChildViewController(profilePanel)
+        profilePanel.didMoveToParentViewController(self)
     }
     
     func addChildShoppingCartController(sidePanelController: ShoppingCartViewController) {
@@ -123,6 +157,19 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
         }
     }
     
+    func animateEditPanelViewController(shouldExpand: Bool) {
+        if shouldExpand {
+            currentState = .EditPanelExpanded
+            animateEditProfileYPosition(CGRectGetHeight(centerNavigationController.view.frame))
+        } else {
+            animateEditProfileYPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.profileViewController!.view.removeFromSuperview()
+                self.profileViewController = nil
+            }
+        }
+    }
+    
     func animateRightPanel(shouldExpand: Bool) {
         if shouldExpand {
             currentState = .RightPanelExpanded
@@ -143,6 +190,11 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate {
             }, completion: completion)
     }
     
+    func animateEditProfileYPosition(targetPosition:CGFloat, completion: ((Bool) -> Void)! = nil) {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+            self.centerNavigationController.view.frame.origin.y = targetPosition
+            }, completion: completion)
+    }
 }
 
 private extension UIStoryboard {
@@ -154,6 +206,10 @@ private extension UIStoryboard {
     
     class func rightViewController() -> ShoppingCartViewController? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? ShoppingCartViewController
+    }
+    
+    class func profileViewController() -> EditUserProfile? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("profile") as? EditUserProfile
     }
     
     class func profileCenterViewController() -> ProfileCenterViewController? {

@@ -13,12 +13,11 @@ protocol ProfileCenterViewControllerDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
+    optional func toggleEditProfile()
 }
 
 
 class ProfileCenterViewController: UIViewController {
-    
-    
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -83,19 +82,15 @@ class ProfileCenterViewController: UIViewController {
         delegate?.toggleRightPanel?()
     }
     
-    @IBAction func submit(sender: AnyObject) {
-        let newEmail = emailField.text
-        let newPassword = passwordField.text
-        
+    @IBAction func btnEditProfile(sender: AnyObject) {
+        delegate?.toggleEditProfile?()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         helloLabel.text = "Hello \((user?.username)!)"
         usernameLabel.text = (user?.username)!
         emailLabel.text = (user?.email)!
-        
     }
     
 }

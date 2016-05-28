@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		995B80911CEFA8A800D3D498 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B80901CEFA8A800D3D498 /* EditUserProfile.swift */; };
 		9C35E6561CE9B18700C5C0C8 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */; };
 		9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */; };
 		9C35E65C1CE9D31700C5C0C8 /* Shopping-Cart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */; };
@@ -29,7 +30,6 @@
 		9C7EEBD61CB0A8F600A0F3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */; };
 		9C7EEBD91CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */; };
 		9C7EEBDB1CB0A8F600A0F3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */; };
-		9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */; };
 		9C7EEBE91CB0A8F600A0F3A2 /* iconmerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBE81CB0A8F600A0F3A2 /* iconmerceTests.swift */; };
 		9C7EEBF41CB0A8F600A0F3A2 /* iconmerceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEBF31CB0A8F600A0F3A2 /* iconmerceUITests.swift */; };
 		9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */; };
@@ -74,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		995B80901CEFA8A800D3D498 /* EditUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
 		9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
 		9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCenterViewController.swift; sourceTree = "<group>"; };
 		9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping-Cart-icon.png"; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		9C7EEBD51CB0A8F600A0F3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C7EEBD81CB0A8F600A0F3A2 /* iconmerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iconmerce.xcdatamodel; sourceTree = "<group>"; };
 		9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9C7EEBDD1CB0A8F600A0F3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C7EEBDF1CB0A8F600A0F3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7EEBE41CB0A8F600A0F3A2 /* iconmerceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iconmerceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7EEBE81CB0A8F600A0F3A2 /* iconmerceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconmerceTests.swift; sourceTree = "<group>"; };
@@ -173,7 +173,6 @@
 				9C7EEBD21CB0A8F600A0F3A2 /* ContainerViewController.swift */,
 				9C7EEBD41CB0A8F600A0F3A2 /* Main.storyboard */,
 				9C7EEBDA1CB0A8F600A0F3A2 /* Assets.xcassets */,
-				9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */,
 				9C7EEBDF1CB0A8F600A0F3A2 /* Info.plist */,
 				9C7EEBD71CB0A8F600A0F3A2 /* iconmerce.xcdatamodeld */,
 				9C7EEC011CB0D81D00A0F3A2 /* CenterViewController.swift */,
@@ -188,6 +187,7 @@
 				9CDCBE861CDFF4F80073A005 /* ShoppingCartViewController.swift */,
 				9CDCBE881CE0120D0073A005 /* UserModel.swift */,
 				9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */,
+				995B80901CEFA8A800D3D498 /* EditUserProfile.swift */,
 				9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */,
 			);
 			path = iconmerce;
@@ -333,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C7EEBDE1CB0A8F600A0F3A2 /* LaunchScreen.storyboard in Resources */,
 				9C4E67921CBB1E99009D807A /* charging_iconcopy.png in Resources */,
 				9C4E67961CBB1EAD009D807A /* streetLights_icon.png in Resources */,
 				9C35E65C1CE9D31700C5C0C8 /* Shopping-Cart-icon.png in Resources */,
@@ -379,6 +378,7 @@
 				9CDCBE7D1CDEEFD60073A005 /* SignupContainerViewController.swift in Sources */,
 				9C7EEC041CB0EF9B00A0F3A2 /* SidePanelViewController.swift in Sources */,
 				9CDCBE871CDFF4F80073A005 /* ShoppingCartViewController.swift in Sources */,
+				995B80911CEFA8A800D3D498 /* EditUserProfile.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
 				9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */,
 				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
@@ -426,14 +426,6 @@
 				9C7EEBD51CB0A8F600A0F3A2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9C7EEBDC1CB0A8F600A0F3A2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C7EEBDD1CB0A8F600A0F3A2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
