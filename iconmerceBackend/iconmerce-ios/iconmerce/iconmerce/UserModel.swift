@@ -140,11 +140,12 @@ class UserLoader {
             for (key, value) in params {
                 let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
                 let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
-                paramString += "\(escapedKey)=\(escapedValue)&"
+                paramString += "\(escapedKey!)=\(escapedValue!)&"
             }
+            let paramStringCleaned = String(paramString.characters.dropLast());
             
-          //  request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = paramStringCleaned.dataUsingEncoding(NSUTF8StringEncoding)
         }
         
         return request
@@ -153,8 +154,25 @@ class UserLoader {
     func updateEmail(email: String, password: String, completion: (success: Bool, message: String?) -> ()) {
         let emailObject = ["email": email]
         let passwordObject = ["password": password]
+        let emailAndPassword = ["email":email, "password":password]
         
-        if putMethod?.email != "" {
+        if putMethod?.email != "" && putMethod?.password != "" {
+            put(clientURLRequest("\((putMethod?.user_id)!)", params: emailAndPassword)) { (success, object) -> () in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    if success {
+                        completion(success: true, message: nil)
+                    } else {
+                        var message = "there was an error"
+                        if let object = object, let passedMessage = object["message"] as? String {
+                            message = passedMessage
+                        }
+                        completion(success: true, message: message)
+                    }
+                })
+            }
+        }
+        
+        else if putMethod?.email != "" {
             print("Updating Email")
             put(clientURLRequest("\((putMethod?.user_id)!)", params: emailObject)) { (success, object) -> () in
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -171,7 +189,7 @@ class UserLoader {
             }
         }
         
-        if putMethod?.password != "" {
+        else if putMethod?.password != "" {
             print("Updating password")
             put(clientURLRequest("\((putMethod?.user_id)!)", params: passwordObject)) { (success, object) -> () in
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
