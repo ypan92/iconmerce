@@ -39,6 +39,12 @@ class SignupCenterViewController: UIViewController {
         }
     }
     
+    let userLoader = UserLoader()
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     var observablesRegistered = false
     
     func registerObservables() {
@@ -71,6 +77,25 @@ class SignupCenterViewController: UIViewController {
     
     @IBAction func cart(sender: AnyObject) {
         delegate?.toggleRightPanel?()
+    }
+    
+    @IBAction func signup(sender: AnyObject) {
+        if usernameField.text != "" && emailField.text != "" && passwordField.text != "" {
+            let newUser = User()
+            newUser.username = usernameField.text
+            newUser.email = emailField.text
+            newUser.password = passwordField.text
+            userLoader.postUser = newUser
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "testSeg11" {
+            let dest = segue.destinationViewController as! LoginContainerViewController
+            dest.icons = icons
+            dest.user = user
+        }
     }
     
     override func viewDidLoad() {

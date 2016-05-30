@@ -29,11 +29,19 @@ class UserLoader {
         }
     }
     
-    /*var postUser: User? {
+    var postUser: User? {
         didSet {
-            postData()
+            postData() { (success, message) in
+                if success {
+                    print("Success")
+                } else {
+                    print("There was some error!")
+                    print(message)
+                }
+
+            }
         }
-    }*/
+    }
     
     let baseURL = "http://default-environment.eyqmmrug4y.us-east-1.elasticbeanstalk.com/iconmerce-api/"
     
@@ -96,10 +104,6 @@ class UserLoader {
             }
         }
     }
-    
-    /*func postData() {
-        if let request = NSMutableURLRequest(URL: "\(baseURL)user")
-    }*/
 
     private func dataTask(request: NSMutableURLRequest, method: String, completion: (success: Bool, object: AnyObject?) -> ()) {
         print("Data Task")
@@ -134,7 +138,14 @@ class UserLoader {
     
     private func clientURLRequest(path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
         print("client URL Request")
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(baseURL)user/"+path)!)
+        var url = ""
+        if path == "" {
+            url = "\(baseURL)user"
+        }
+        else {
+            url = "\(baseURL)user/"+path
+        }
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         if let params = params {
             var paramString = ""
             for (key, value) in params {
@@ -149,6 +160,23 @@ class UserLoader {
         }
         
         return request
+    }
+    
+    func postData(completion: (success: Bool, message: String?) -> ()) {
+        let params = ["username":(postUser?.username)!, "email":(postUser?.email)!, "password":(postUser?.password)!]
+        post(clientURLRequest("", params: params)) { (success, object) -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if success {
+                    completion(success: true, message: nil)
+                } else {
+                    var message = "there was an error"
+                    if let object = object, let passedMessage = object["message"] as? String {
+                        message = passedMessage
+                    }
+                    completion(success: true, message: message)
+                }
+            })
+        }
     }
     
     func updateEmail(email: String, password: String, completion: (success: Bool, message: String?) -> ()) {
