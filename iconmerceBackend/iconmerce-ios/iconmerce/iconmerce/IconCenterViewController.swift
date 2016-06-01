@@ -23,6 +23,7 @@ class IconCenterViewController: UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -87,6 +88,18 @@ class IconCenterViewController: UIViewController {
         }
     }
     
+    @IBAction func back(sender: AnyObject) {
+        performSegueWithIdentifier("testSeg13", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "testSeg13" {
+            let dest = segue.destinationViewController as! ContainerViewController
+            dest.icons = icons
+            dest.user = user
+            //TODO: send history to dest for preserving cached history
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

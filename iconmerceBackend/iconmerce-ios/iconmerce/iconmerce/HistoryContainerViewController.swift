@@ -1,29 +1,21 @@
-//
-//  ProfileContainerViewController.swift
-//  iconmerce
-//
-//  Created by Yang Pan on 5/16/16.
-//  Copyright © 2016 iconmerce. All rights reserved.
-//
+
 
 import UIKit
 
-enum SlideOutState5 {
+enum SlideOutState6 {
     case BothCollapsed
     case LeftPanelExpanded
     case RightPanelExpanded
-    case EditPanelExpanded
 }
 
-class ProfileContainerViewController: UIViewController {
+class HistoryContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
-    var centerViewController: ProfileCenterViewController!
+    var centerViewController: HistoryCenterViewController!
     
-    var currentState: SlideOutState5 = .BothCollapsed
+    var currentState: SlideOutState6 = .BothCollapsed
     var leftViewController: SidePanelViewController?
     var rightViewController: ShoppingCartViewController?
-    var profileViewController: EditUserProfile?
     
     let centerPanelExpandedOffset: CGFloat = 60
     
@@ -33,14 +25,18 @@ class ProfileContainerViewController: UIViewController {
     
     var history: Icons?
     
+    var iconLoader: IconsLoader?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        centerViewController = UIStoryboard.profileCenterViewController()
+        centerViewController = UIStoryboard.historyCenterViewController()
         centerViewController.delegate = self
         centerViewController.icons = icons
         centerViewController.user = user
+        centerViewController.iconLoader = iconLoader
+        centerViewController.history = history
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
@@ -65,22 +61,7 @@ class ProfileContainerViewController: UIViewController {
     
 }
 
-extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, EditUserProfileDelegate {
-    
-    func closeEditProfileView() {
-        print("Closing Profile View!")
-        animateEditPanelViewController(false)
-    }
-    
-    func toggleEditProfile() {
-        let notAlreadyExpanded = (currentState != .EditPanelExpanded)
-        
-        if notAlreadyExpanded {
-          addEditPanelViewController()
-        }
-        
-        animateEditPanelViewController(notAlreadyExpanded)
-    }
+extension HistoryContainerViewController: HistoryCenterViewControllerDelegate {
     
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
@@ -95,7 +76,6 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, E
         if notAlreadyExpanded {
             addRightPanelViewController()
         }
-        
         animateRightPanel(notAlreadyExpanded)
     }
     
@@ -109,26 +89,10 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, E
         }
     }
     
-    func addEditPanelViewController() {
-        if profileViewController == nil {
-            profileViewController = UIStoryboard.profileViewController()
-            profileViewController?.delegate = self
-            profileViewController?.user = user
-            profileViewController?.icons = icons
-            addChildProfilePanelController(profileViewController!)
-        }
-    }
-    
     func addChildSidePanelController(sidePanelController: SidePanelViewController) {
         view.insertSubview(sidePanelController.view, atIndex: 0)
         addChildViewController(sidePanelController)
         sidePanelController.didMoveToParentViewController(self)
-    }
-    
-    func addChildProfilePanelController(profilePanel: EditUserProfile) {
-        view.insertSubview(profilePanel.view, atIndex: 0)
-        addChildViewController(profilePanel)
-        profilePanel.didMoveToParentViewController(self)
     }
     
     func addChildShoppingCartController(sidePanelController: ShoppingCartViewController) {
@@ -160,19 +124,6 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, E
         }
     }
     
-    func animateEditPanelViewController(shouldExpand: Bool) {
-        if shouldExpand {
-            currentState = .EditPanelExpanded
-            animateEditProfileYPosition(CGRectGetHeight(centerNavigationController.view.frame))
-        } else {
-            animateEditProfileYPosition(0) { finished in
-                self.currentState = .BothCollapsed
-                self.profileViewController!.view.removeFromSuperview()
-                self.profileViewController = nil
-            }
-        }
-    }
-    
     func animateRightPanel(shouldExpand: Bool) {
         if shouldExpand {
             currentState = .RightPanelExpanded
@@ -193,11 +144,6 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, E
             }, completion: completion)
     }
     
-    func animateEditProfileYPosition(targetPosition:CGFloat, completion: ((Bool) -> Void)! = nil) {
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-            self.centerNavigationController.view.frame.origin.y = targetPosition
-            }, completion: completion)
-    }
 }
 
 private extension UIStoryboard {
@@ -211,14 +157,9 @@ private extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("RightViewController") as? ShoppingCartViewController
     }
     
-    class func profileViewController() -> EditUserProfile? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("profile") as? EditUserProfile
-    }
-    
-    class func profileCenterViewController() -> ProfileCenterViewController? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("ProfileCenterViewController") as? ProfileCenterViewController
+    class func historyCenterViewController() -> HistoryCenterViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("HistoryCenterViewController") as? HistoryCenterViewController
     }
     
 }
-
 

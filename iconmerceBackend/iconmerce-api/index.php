@@ -33,6 +33,40 @@ $app->get('/users', function() use($app, $db) {
 	echo json_encode($users, JSON_FORCE_OBJECT);
 });
 
+$app->get("/transactions", function() use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$transactions = array();
+	$trans = $db->transactions()->order("date");
+	foreach($trans as $trans) {
+		$transactions[] = array(
+			'transactionId' => $trans['transactionId'],
+			'userId' => $trans['userId'],
+			'isDeposit' => $trans['isDeposit'],
+			'amount' => $trans['amount'],
+			'date' => $trans['date'],
+			'category' => $trans['category']
+		);
+	}
+	echo json_encode($transactions, JSON_FORCE_OBJECT);
+});
+
+$app->get("/transMonth/:month/:year", function($month, $year) use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$trans = $db->transactions()->where(array("month(date)" => $month, "year(date)" => $year));
+	$transactions = array();
+	foreach ($trans as $data) {
+		$transactions[] = array(
+			'transactionId' => $data['transactionId'],
+			'userId' => $data['userId'],
+			'isDeposit' => $data['isDeposit'],
+			'amount' => $data['amount'],
+			'date' => $data['date'],
+			'category' => $data['category']
+		);
+	}
+	echo json_encode($transactions, JSON_FORCE_OBJECT);
+});
+
 $app->get('/users/:id', function($id) use($app, $db) {
 	$app->response()->header("Content-Type", "application/json");
 	$user = $db->users()->where('user_id', $id);
@@ -118,6 +152,40 @@ $app->get('/products/:id', function($id) use($app, $db) {
 	}
 });
 
+$app->get('/prods/:ids', function($ids) use($app, $db) {
+	$app->response->header("Content-Type", "application/json");
+	$idList = explode(",", $ids);
+	$prod = $db->products()->where("item_id", $idList);
+	$products = array();
+	foreach($prod as $data) {
+		$products[] = array (
+			'item_id' => $data['item_id'],
+			'item_price' => $data['item_price'],
+			'item_name' => $data['item_name'],
+			'item_desc' => $data['item_desc'],
+			'item_reviews' => $data['item_reviews'],
+			'item_rating' => $data['item_rating'],
+			'item_location' => $data['item_location']
+		);
+	}
+	echo json_encode($products, JSON_FORCE_OBJECT);
+
+});
+
+$app->get('/purchases/:id', function($id) use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$purch = $db->purchases()->where('user_id', $id);
+	$purchases = array();
+	foreach ($purch as $data) {
+		$purchases[] = array (
+			'id' => $data['id'],
+			'user_id' => $data['user_id'],
+			'item_id' => $data['item_id']
+		);
+	}
+	echo json_encode($purchases, JSON_FORCE_OBJECT);
+});
+
 $app->post('/user', function() use($app, $db) {
 	$app->response()->header("Content-Type", "application/json");
 	$user = $app->request()->post();
@@ -130,6 +198,32 @@ $app->post('/product', function() use($app, $db) {
 	$product = $app->request()->post();
 	$result = $db->products->insert($product);
 	echo json_encode(array('id' => $result['id']));
+});
+
+$app->post('/transaction', function() use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$transaction = $app->request()->post();
+	$result = $db->transactions->insert($transaction);
+	echo json_encode(array('id' => $result['id']));
+});
+
+$app->put('/transUpdate/:id', function($id) use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$trans = $db->transactions()->where("transactionId", $id);
+	if ($trans->fetch()) {
+		$post = $app->request()->put();
+		$result = $trans->update($post);
+		echo json_encode(array(
+			"status" => (bool)$result,
+			"message" => "Transaction updated successfully"
+		));
+	}
+	else {
+		echo json_encode(array(
+			"status" => false,
+			"message" => "Transaction id $id does not exist"
+		));
+	}
 });
 
 $app->put('/user/:id', function($id) use($app, $db) {

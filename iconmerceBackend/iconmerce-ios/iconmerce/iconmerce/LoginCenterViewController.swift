@@ -60,6 +60,11 @@ class LoginCenterViewController: UIViewController {
             let dest = segue.destinationViewController as! ContainerViewController
             dest.user = user
             dest.icons = icons
+            /*if user != nil {
+                let iconLoader = IconsLoader()
+                iconLoader.userId = Int((user?.user_id)!)
+                dest.iconLoader = iconLoader
+            }*/
         }
         print("in seg")
     }

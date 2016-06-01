@@ -30,6 +30,10 @@ class ContainerViewController: UIViewController {
     
     var user: User?
     
+    var history: Icons?
+    
+    var iconLoader: IconsLoader?
+    
     var showCart: Bool?
     
     override func viewDidLoad() {
@@ -92,6 +96,8 @@ extension ContainerViewController: CenterViewControllerDelegate {
             leftViewController = UIStoryboard.leftViewController()
             leftViewController?.icons = icons
             leftViewController?.user = user
+            leftViewController?.history = history
+            leftViewController?.iconLoader = iconLoader
             addChildSidePanelController(leftViewController!)
         }
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		995B80911CEFA8A800D3D498 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B80901CEFA8A800D3D498 /* EditUserProfile.swift */; };
+		9C12777E1CFDC2DF00B22C6E /* HistoryContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12777D1CFDC2DF00B22C6E /* HistoryContainerViewController.swift */; };
+		9C1277801CFDC3CF00B22C6E /* HistoryCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12777F1CFDC3CF00B22C6E /* HistoryCenterViewController.swift */; };
 		9C35E6561CE9B18700C5C0C8 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */; };
 		9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */; };
 		9C35E65C1CE9D31700C5C0C8 /* Shopping-Cart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		995B80901CEFA8A800D3D498 /* EditUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
+		9C12777D1CFDC2DF00B22C6E /* HistoryContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryContainerViewController.swift; sourceTree = "<group>"; };
+		9C12777F1CFDC3CF00B22C6E /* HistoryCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCenterViewController.swift; sourceTree = "<group>"; };
 		9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
 		9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCenterViewController.swift; sourceTree = "<group>"; };
 		9C35E65B1CE9D31700C5C0C8 /* Shopping-Cart-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping-Cart-icon.png"; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				9C35E6551CE9B18700C5C0C8 /* ProfileContainerViewController.swift */,
 				995B80901CEFA8A800D3D498 /* EditUserProfile.swift */,
 				9C35E6571CE9B1E900C5C0C8 /* ProfileCenterViewController.swift */,
+				9C12777D1CFDC2DF00B22C6E /* HistoryContainerViewController.swift */,
+				9C12777F1CFDC3CF00B22C6E /* HistoryCenterViewController.swift */,
 			);
 			path = iconmerce;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				9CDCBE851CDF48360073A005 /* LoginCenterViewController.swift in Sources */,
 				9C35E6561CE9B18700C5C0C8 /* ProfileContainerViewController.swift in Sources */,
 				9C7EEBD31CB0A8F600A0F3A2 /* ContainerViewController.swift in Sources */,
+				9C1277801CFDC3CF00B22C6E /* HistoryCenterViewController.swift in Sources */,
 				9CDCBE7F1CDEEFE20073A005 /* SignupCenterViewController.swift in Sources */,
 				9C7EEC021CB0D81D00A0F3A2 /* CenterViewController.swift in Sources */,
 				9C35E6581CE9B1E900C5C0C8 /* ProfileCenterViewController.swift in Sources */,
@@ -381,6 +388,7 @@
 				995B80911CEFA8A800D3D498 /* EditUserProfile.swift in Sources */,
 				9C7EEBD11CB0A8F600A0F3A2 /* AppDelegate.swift in Sources */,
 				9CDCBE831CDF47BD0073A005 /* LoginContainerViewController.swift in Sources */,
+				9C12777E1CFDC2DF00B22C6E /* HistoryContainerViewController.swift in Sources */,
 				9C75220F1CD6D8EB004E9D13 /* IconContainerViewController.swift in Sources */,
 				9C4E678C1CBAEBE1009D807A /* SwiftyJSON.swift in Sources */,
 				9CDCBE891CE0120D0073A005 /* UserModel.swift in Sources */,
