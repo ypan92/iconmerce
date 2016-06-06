@@ -105,22 +105,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iconmerce/SignupCenterViewController.swift"
-            timestampString = "486311820.169883"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "signup(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "iconmerce/UserModel.swift"
             timestampString = "486312246.193516"
             startingColumnNumber = "9223372036854775807"
@@ -138,7 +122,7 @@
                   moduleName = "iconmerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/UserModel.swift"
-                  timestampString = "486416002.258364"
+                  timestampString = "486869364.671158"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -153,7 +137,7 @@
                   moduleName = "iconmerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/UserModel.swift"
-                  timestampString = "486416002.258636"
+                  timestampString = "486869364.671356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -186,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iconmerce/IconModel.swift"
-            timestampString = "486402462.090141"
+            timestampString = "486858728.142533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "parsePurchaseData(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iconmerce/IconModel.swift"
-            timestampString = "486403221.751747"
+            timestampString = "486858728.142533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "getHistory()"
             landmarkType = "5">
          </BreakpointContent>

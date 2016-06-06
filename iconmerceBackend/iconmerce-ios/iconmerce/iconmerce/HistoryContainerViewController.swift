@@ -106,6 +106,7 @@ extension HistoryContainerViewController: HistoryCenterViewControllerDelegate {
             rightViewController = UIStoryboard.rightViewController()
             rightViewController?.icons = icons
             rightViewController?.user = user
+            rightViewController?.history = history
             addChildShoppingCartController(rightViewController!)
         }
     }

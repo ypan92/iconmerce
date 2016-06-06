@@ -15,8 +15,14 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
     
     var icons: Icons?
     var user: User?
+    var history: Icons?
+    
+    var total: Double?
+    
+    var purchaseLoader = PurchaseLoader()
     
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var chargeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +30,33 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
         paymentTextField.delegate = self
         view.addSubview(paymentTextField)
         submitButton.enabled = false;
+        chargeLabel.text = "Total Charge $\(total!)"
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
         submitButton.enabled = true;
+    }
+    
+    
+    @IBAction func submit(sender: AnyObject) {
+        let card = paymentTextField.cardParams
+        STPAPIClient.sharedClient().createTokenWithCard(card) { (token, error) -> Void in
+            if error != nil {
+                print("there was an error")
+            }
+            else if token != nil {
+                print("success")
+                if let cart = self.user?.cartItems {
+                    for (result) in cart {
+                        let purch = Purchase()
+                        purch.itemId = result.id
+                        purch.userId = Int((self.user?.user_id)!)
+                        self.purchaseLoader.purchase = purch
+                    }
+                    self.performSegueWithIdentifier("testSeg14", sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func goBack(sender: AnyObject) {
@@ -40,6 +69,13 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
             dest.icons = icons
             dest.user = user
             dest.showCart = true
+            dest.history = history
+        }
+        else if segue.identifier == "testSeg14" {
+            let dest = segue.destinationViewController as! SuccessViewController
+            dest.icons = icons
+            dest.user = user
+            dest.history = history
         }
     }
 }

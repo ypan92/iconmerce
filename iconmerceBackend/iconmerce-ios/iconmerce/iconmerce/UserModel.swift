@@ -48,9 +48,9 @@ class UserLoader {
     func parseJSON(data: NSData) {
         let json = JSON(data: data)
         
-        print("user: \(json["username"].stringValue)")
-        print("email: \(json["email"].stringValue)")
-        print("user_id: \(json["user_id"].stringValue)")
+        //print("user: \(json["username"].stringValue)")
+        //print("email: \(json["email"].stringValue)")
+        //print("user_id: \(json["user_id"].stringValue)")
         
         let status = json["status"]
         if status.error != nil {

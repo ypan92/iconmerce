@@ -27,6 +27,7 @@ class IconContainerViewController: UIViewController {
     let centerPanelExpandedOffset: CGFloat = 60
     
     var icons: Icons?
+    var history: Icons?
     
     var icon: Icon?
     
@@ -108,6 +109,7 @@ extension IconContainerViewController: IconCenterViewControllerDelegate {
             rightViewController = UIStoryboard.rightViewController()
             rightViewController?.icons = icons
             rightViewController?.user = user
+            rightViewController?.history = history
             addChildShoppingCartController(rightViewController!)
         }
     }

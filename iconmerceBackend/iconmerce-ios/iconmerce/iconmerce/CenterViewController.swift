@@ -39,6 +39,7 @@ class CenterViewController: UICollectionViewController {
     var delegate: CenterViewControllerDelegate?
     
     var user: User?
+    var history: Icons?
     
     var icons: Icons? {
         didSet {
@@ -151,7 +152,7 @@ class CenterViewController: UICollectionViewController {
             dest.icon = targetIcon
             
             dest.user = user
-            
+            dest.history = history
         }
     }
     

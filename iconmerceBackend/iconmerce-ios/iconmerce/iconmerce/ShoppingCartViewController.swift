@@ -25,6 +25,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     var icons: Icons?
     var user: User?
+    var total = 0.00
+    var history: Icons?
     
     @IBOutlet weak var cartList: UITableView!
     @IBOutlet weak var greetingLabel: UILabel!
@@ -48,7 +50,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
             linkLogin.enabled = false
             checkoutButton.enabled = true
             
-            var total = 0.00;
+            //var total = 0.00;
             for icon in (user?.cartItems)! {
                 total += icon.price!
             }
@@ -86,12 +88,15 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
             let dest = segue.destinationViewController as! PaymentViewController
             dest.icons = icons
             dest.user = user
+            dest.total = total
+            dest.history = history
         }
         else if segue.identifier == "testSeg10" {
             let dest = segue.destinationViewController as! ContainerViewController
             dest.icons = icons
             dest.user = user
             dest.showCart = true
+            dest.history = history
         }
     }
     

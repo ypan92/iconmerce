@@ -30,7 +30,7 @@ class EditUserProfile: UIViewController {
     
     @IBAction func btnSubmit(sender: AnyObject) {
         
-        print("email: " + textEmail.text!)
+        //print("email: " + textEmail.text!)
         if textEmail.text != "" {
             let tempUser = User()
             tempUser.email = textEmail.text
@@ -39,7 +39,7 @@ class EditUserProfile: UIViewController {
             userModel.putMethod = tempUser
             delegate?.closeEditProfileView?()
         }
-        print("Submit button pressed!")
+        //print("Submit button pressed!")
     }
     
     @IBAction func btnBack(sender: AnyObject) {

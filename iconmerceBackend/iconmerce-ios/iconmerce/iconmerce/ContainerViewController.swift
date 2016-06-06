@@ -44,6 +44,7 @@ class ContainerViewController: UIViewController {
         centerViewController.delegate = self
         centerViewController.icons = icons
         centerViewController.user = user
+        centerViewController.history = history
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)
@@ -119,6 +120,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
             rightViewController = UIStoryboard.rightViewController()
             rightViewController?.icons = icons
             rightViewController?.user = user
+            rightViewController?.history = history
             addChildShoppingCartController(rightViewController!)
         }
     }

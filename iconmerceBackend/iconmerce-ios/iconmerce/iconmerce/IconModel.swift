@@ -9,6 +9,7 @@
 import Foundation
 
 class Icon {
+    var id: Int?
     var price: Double?
     var name: String?
     var description: String?
@@ -46,6 +47,7 @@ class IconsLoader {
         
         for (_, result) in json {
             let icon = Icon()
+            icon.id = result["item_id"].intValue
             icon.price = result["item_price"].doubleValue
             icon.name = result["item_name"].stringValue
             icon.description = result["item_desc"].stringValue
@@ -88,6 +90,7 @@ class IconsLoader {
         
         for (_, result) in json {
             let icon = Icon()
+            icon.id = result["item_id"].intValue
             icon.price = result["item_price"].doubleValue
             icon.name = result["item_name"].stringValue
             icon.description = result["item_desc"].stringValue

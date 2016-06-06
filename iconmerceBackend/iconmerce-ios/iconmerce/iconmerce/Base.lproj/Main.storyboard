@@ -294,23 +294,110 @@
                                     <constraint firstAttribute="width" constant="57" id="1B1-hN-dp8"/>
                                 </constraints>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="aPF-co-mZW" eventType="touchUpInside" id="RIw-wJ-jdR"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Charge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nW-b5-0zc">
+                                <rect key="frame" x="212" y="46" width="176" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="IKp-rB-mLz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qGo-07-ssY" firstAttribute="centerX" secondItem="gxx-l1-PKy" secondAttribute="centerX" id="JIY-Sv-Bhl"/>
                             <constraint firstItem="6Ny-s3-gAn" firstAttribute="top" secondItem="P2H-RS-G4n" secondAttribute="bottom" constant="189" id="JXC-EU-byI"/>
                             <constraint firstItem="qGo-07-ssY" firstAttribute="centerX" secondItem="P2H-RS-G4n" secondAttribute="centerX" id="PdQ-jS-D7h"/>
+                            <constraint firstItem="3nW-b5-0zc" firstAttribute="centerX" secondItem="qGo-07-ssY" secondAttribute="centerX" id="WYU-JQ-9DX"/>
+                            <constraint firstItem="3nW-b5-0zc" firstAttribute="top" secondItem="3AK-Dy-YyH" secondAttribute="bottom" constant="26" id="WiM-mO-Avk"/>
                             <constraint firstItem="P2H-RS-G4n" firstAttribute="top" secondItem="qGo-07-ssY" secondAttribute="bottom" constant="36" id="uKs-MM-acx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chargeLabel" destination="3nW-b5-0zc" id="dfk-uc-T7o"/>
                         <outlet property="submitButton" destination="qGo-07-ssY" id="KB8-7a-V1e"/>
+                        <segue destination="PdU-aH-3cM" kind="showDetail" identifier="testSeg14" id="P3i-Y7-2Bd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdn-Mp-av4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-368" y="1276"/>
+        </scene>
+        <!--Success View Controller-->
+        <scene sceneID="2Fc-CD-jBe">
+            <objects>
+                <viewController id="PdU-aH-3cM" customClass="SuccessViewController" customModule="iconmerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zub-pa-KZM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iit-YH-f9W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TKG-4z-wn3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhX-xt-gd6">
+                                <rect key="frame" x="258" y="61" width="85" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="AzC-o5-7DB"/>
+                                    <constraint firstAttribute="width" constant="85" id="Nar-gt-z3j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review past purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qc6-MI-NqS">
+                                <rect key="frame" x="212" y="287" width="176" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZjR-is-F1o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your payment has been successfully processed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G3-gc-PMH">
+                                <rect key="frame" x="119" y="109" width="363" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Siw-Tm-yf8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERQ-dy-lne">
+                                <rect key="frame" x="279" y="316" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rKn-sB-vrk"/>
+                                </constraints>
+                                <state key="normal" title="here"/>
+                                <connections>
+                                    <action selector="goToHistory:" destination="PdU-aH-3cM" eventType="touchUpInside" id="FWf-uT-d3B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ERQ-dy-lne" firstAttribute="top" secondItem="qc6-MI-NqS" secondAttribute="bottom" constant="8" id="3pH-aA-M7Q"/>
+                            <constraint firstItem="JhX-xt-gd6" firstAttribute="centerX" secondItem="TKG-4z-wn3" secondAttribute="centerX" id="C4B-3Z-92v"/>
+                            <constraint firstItem="JhX-xt-gd6" firstAttribute="top" secondItem="Zub-pa-KZM" secondAttribute="bottom" constant="41" id="PoQ-mA-o7K"/>
+                            <constraint firstItem="3G3-gc-PMH" firstAttribute="top" secondItem="Zub-pa-KZM" secondAttribute="bottom" constant="89" id="R1n-Eo-p87"/>
+                            <constraint firstItem="qc6-MI-NqS" firstAttribute="centerX" secondItem="ERQ-dy-lne" secondAttribute="centerX" constant="5.5" id="SKZ-Vv-mfA"/>
+                            <constraint firstItem="3G3-gc-PMH" firstAttribute="centerX" secondItem="qc6-MI-NqS" secondAttribute="centerX" id="a7M-bb-4HK"/>
+                            <constraint firstItem="Iit-YH-f9W" firstAttribute="top" secondItem="ERQ-dy-lne" secondAttribute="bottom" constant="254" id="vkc-5W-yw0"/>
+                            <constraint firstItem="JhX-xt-gd6" firstAttribute="centerX" secondItem="3G3-gc-PMH" secondAttribute="centerX" id="yUz-HA-bV7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="JMR-o0-OYT" kind="showDetail" identifier="testSeg15" id="led-hV-Sni"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIP-MY-6wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368" y="2112"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="j9P-rU-8iN">
@@ -1001,5 +1088,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="f0u-lq-YVa"/>
         <segue reference="XYb-hR-vJO"/>
+        <segue reference="led-hV-Sni"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -186,6 +186,13 @@ $app->get('/purchases/:id', function($id) use($app, $db) {
 	echo json_encode($purchases, JSON_FORCE_OBJECT);
 });
 
+$app->post('/purchases', function() use($app, $db) {
+	$app->response->header("Content-Type", "application/json");
+	$transaction = $app->request()->post();
+	$result = $db->purchases()->insert($transaction);
+	echo json_encode(array('id' => $result['id']));
+});
+
 $app->post('/user', function() use($app, $db) {
 	$app->response()->header("Content-Type", "application/json");
 	$user = $app->request()->post();

@@ -48,7 +48,6 @@ class HistoryCenterViewController: UIViewController, UITableViewDelegate, UITabl
     let userLoader = UserLoader()
     
     var observablesRegistered = false
-    //var observablesRegistered2 = false
     
     func registerObservables() {
         if !observablesRegistered {
@@ -57,26 +56,12 @@ class HistoryCenterViewController: UIViewController, UITableViewDelegate, UITabl
         observablesRegistered = true
     }
     
-    /*func registerObservables2() {
-        if !observablesRegistered2 {
-            history?.addObserver(self, forKeyPath: "count", options: .New, context: nil)
-        }
-        observablesRegistered2 = true
-    }*/
-    
     func unregisterObservables(object: Icons?) {
         if observablesRegistered {
             icons?.removeObserver(self, forKeyPath: "count")
         }
         observablesRegistered = false
     }
-    
-    /*func unregisterObservables2(object: Icons?) {
-        if observablesRegistered2 {
-            history?.removeObserver(self, forKeyPath: "count")
-        }
-        observablesRegistered2 = false
-    }*/
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "count" {
