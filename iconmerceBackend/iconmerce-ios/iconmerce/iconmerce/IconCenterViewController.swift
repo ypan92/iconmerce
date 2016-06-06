@@ -24,6 +24,7 @@ class IconCenterViewController: UIViewController {
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var reviewButton: UIButton!
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
@@ -38,6 +39,7 @@ class IconCenterViewController: UIViewController {
     var icon: Icon?
     
     var user: User?
+    var history: Icons?
     
     var icons: Icons? {
         didSet {
@@ -98,7 +100,17 @@ class IconCenterViewController: UIViewController {
             dest.icons = icons
             dest.user = user
             //TODO: send history to dest for preserving cached history
+            dest.history = history
         }
+    }
+    
+    func hasBeenPurchase() -> Bool {
+        for (icn) in (history?.icons)! {
+            if icn.id == icon?.id {
+                return true
+            }
+        }
+        return false
     }
     
     override func viewDidLoad() {
@@ -112,13 +124,23 @@ class IconCenterViewController: UIViewController {
         info.text = (icon?.description)!
         
         if user != nil {
-            addButton.hidden = false
+            if hasBeenPurchase() == true {
+                reviewButton.hidden = false
+                addButton.hidden = true
+            }
+            else {
+                reviewButton.hidden = true
+                addButton.hidden = false
+            }
         }
         else {
             addButton.hidden = true
+            reviewButton.hidden = true
         }
         
     }
+    
+    
     
 }
 

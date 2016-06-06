@@ -95,15 +95,24 @@
                                     <segue destination="AnS-JN-z2e" kind="showDetail" identifier="testSeg13" id="4MY-W1-bvh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVT-Cg-Ekm">
+                                <rect key="frame" x="260" y="465" width="80" height="30"/>
+                                <state key="normal" title="Add Review"/>
+                                <connections>
+                                    <segue destination="x73-fu-Qd2" kind="showDetail" identifier="testSeg16" id="rZg-rb-7J6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mVT-Cg-Ekm" firstAttribute="centerX" secondItem="xOa-v0-QXc" secondAttribute="centerX" id="9Bl-Vu-gNs"/>
                             <constraint firstItem="tBA-uJ-pEE" firstAttribute="top" secondItem="N6g-zk-6Ee" secondAttribute="bottom" constant="197" id="DMa-Fd-aE7"/>
                             <constraint firstItem="N6g-zk-6Ee" firstAttribute="top" secondItem="TfE-XV-hzD" secondAttribute="bottom" constant="8" symbolic="YES" id="KgK-o8-7ZG"/>
                             <constraint firstItem="N6g-zk-6Ee" firstAttribute="leading" secondItem="fwk-lG-4a0" secondAttribute="leadingMargin" id="Tuq-Gc-mKY"/>
                             <constraint firstItem="N6g-zk-6Ee" firstAttribute="trailing" secondItem="fwk-lG-4a0" secondAttribute="trailingMargin" id="hL3-9A-fHa"/>
                             <constraint firstItem="mU8-QJ-CYa" firstAttribute="top" secondItem="xOa-v0-QXc" secondAttribute="bottom" constant="41" id="nU7-gq-SII"/>
                             <constraint firstItem="xOa-v0-QXc" firstAttribute="centerX" secondItem="N6g-zk-6Ee" secondAttribute="centerX" id="nUU-lh-BYp"/>
+                            <constraint firstItem="mU8-QJ-CYa" firstAttribute="top" secondItem="mVT-Cg-Ekm" secondAttribute="bottom" constant="16" id="qGH-j6-l0h"/>
                             <constraint firstItem="xOa-v0-QXc" firstAttribute="top" secondItem="N6g-zk-6Ee" secondAttribute="bottom" constant="37" id="vFe-fG-2kf"/>
                             <constraint firstItem="mU8-QJ-CYa" firstAttribute="centerX" secondItem="xOa-v0-QXc" secondAttribute="centerX" id="wea-J4-pbY"/>
                         </constraints>
@@ -129,11 +138,47 @@
                         <outlet property="info" destination="8hV-GF-joU" id="v2b-ls-Kqs"/>
                         <outlet property="name" destination="4gt-FC-mWa" id="K7V-tr-9gk"/>
                         <outlet property="price" destination="1sf-kP-PlH" id="Tic-f5-Ays"/>
+                        <outlet property="reviewButton" destination="mVT-Cg-Ekm" id="RQr-3Q-UCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Geg-YQ-86L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308" y="-841"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="r8x-k7-0fl">
+            <objects>
+                <viewController id="x73-fu-Qd2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a5x-U0-dTO"/>
+                        <viewControllerLayoutGuide type="bottom" id="kJK-eQ-r2g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OF2-9t-blV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="9Hn-ar-0hy" customClass="RatingControl" customModule="iconmerce" customModuleProvider="target">
+                                <rect key="frame" x="180" y="170" width="240" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYs-dz-gcg">
+                                <rect key="frame" x="26" y="28" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="DML-dh-Eti" kind="showDetail" identifier="testSeg17" id="yJ4-8i-ucS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Hn-ar-0hy" firstAttribute="top" secondItem="a5x-U0-dTO" secondAttribute="bottom" constant="150" id="31l-ha-tfg"/>
+                            <constraint firstItem="9Hn-ar-0hy" firstAttribute="centerX" secondItem="OF2-9t-blV" secondAttribute="centerX" id="KnO-YC-fcq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7V-6D-LM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="-841"/>
         </scene>
         <!--iconmerce-->
         <scene sceneID="8dk-ex-BEk">
@@ -307,19 +352,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There was an error with your payment!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-3X-b3U">
+                                <rect key="frame" x="153" y="466" width="294" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nmC-3X-b3U" firstAttribute="centerX" secondItem="P2H-RS-G4n" secondAttribute="centerX" id="3bv-mF-qum"/>
                             <constraint firstItem="qGo-07-ssY" firstAttribute="centerX" secondItem="gxx-l1-PKy" secondAttribute="centerX" id="JIY-Sv-Bhl"/>
                             <constraint firstItem="6Ny-s3-gAn" firstAttribute="top" secondItem="P2H-RS-G4n" secondAttribute="bottom" constant="189" id="JXC-EU-byI"/>
                             <constraint firstItem="qGo-07-ssY" firstAttribute="centerX" secondItem="P2H-RS-G4n" secondAttribute="centerX" id="PdQ-jS-D7h"/>
                             <constraint firstItem="3nW-b5-0zc" firstAttribute="centerX" secondItem="qGo-07-ssY" secondAttribute="centerX" id="WYU-JQ-9DX"/>
                             <constraint firstItem="3nW-b5-0zc" firstAttribute="top" secondItem="3AK-Dy-YyH" secondAttribute="bottom" constant="26" id="WiM-mO-Avk"/>
+                            <constraint firstItem="nmC-3X-b3U" firstAttribute="top" secondItem="P2H-RS-G4n" secondAttribute="bottom" constant="55" id="asv-bb-h9g"/>
                             <constraint firstItem="P2H-RS-G4n" firstAttribute="top" secondItem="qGo-07-ssY" secondAttribute="bottom" constant="36" id="uKs-MM-acx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chargeLabel" destination="3nW-b5-0zc" id="dfk-uc-T7o"/>
+                        <outlet property="errorLabel" destination="nmC-3X-b3U" id="WgN-Px-6Xa"/>
                         <outlet property="submitButton" destination="qGo-07-ssY" id="KB8-7a-V1e"/>
                         <segue destination="PdU-aH-3cM" kind="showDetail" identifier="testSeg14" id="P3i-Y7-2Bd"/>
                     </connections>
@@ -1087,7 +1141,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f0u-lq-YVa"/>
-        <segue reference="XYb-hR-vJO"/>
         <segue reference="led-hV-Sni"/>
+        <segue reference="4MY-W1-bvh"/>
     </inferredMetricsTieBreakers>
 </document>

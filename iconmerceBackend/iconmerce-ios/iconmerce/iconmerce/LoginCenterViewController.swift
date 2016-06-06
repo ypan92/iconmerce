@@ -23,6 +23,10 @@ class LoginCenterViewController: UIViewController {
     
     var user: User?
     
+    var itemIds: [Int] = []
+    
+    var history: Icons?
+    
     let userModel: UserLoader = UserLoader()
     
     @IBAction func login(sender: AnyObject) {
@@ -42,6 +46,8 @@ class LoginCenterViewController: UIViewController {
         }
         else {
             user = userModel.user
+            getHistory()
+            while history == nil {}
         }
         
         if user != nil && self == self.navigationController!.topViewController {
@@ -60,6 +66,7 @@ class LoginCenterViewController: UIViewController {
             let dest = segue.destinationViewController as! ContainerViewController
             dest.user = user
             dest.icons = icons
+            dest.history = history
             /*if user != nil {
                 let iconLoader = IconsLoader()
                 iconLoader.userId = Int((user?.user_id)!)
@@ -124,6 +131,64 @@ class LoginCenterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    func getHistory() {
+        let baseURL = "http://default-environment.eyqmmrug4y.us-east-1.elasticbeanstalk.com/iconmerce-api/"
+        if let url = NSURL(string: "\(baseURL)purchases/\((user?.user_id)!)") {
+            let session = NSURLSession.sharedSession()
+            let download = session.dataTaskWithURL(url) {
+                [unowned self] (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                
+                if let data = data {
+                    self.parsePurchaseData(data)
+                    var params = "";
+                    for (id) in self.itemIds {
+                        params += "\(id),"
+                    }
+                    params.removeAtIndex(params.endIndex.predecessor())
+                    if let prodURL = NSURL(string: "\(baseURL)prods/\(params)") {
+                        let psession = NSURLSession.sharedSession()
+                        let pdownload = psession.dataTaskWithURL(prodURL) {
+                            [unowned self] (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                            
+                            if let data = data {
+                                self.parseHistoryData(data)
+                            }
+                        }
+                        pdownload.resume()
+                    }
+                }
+            }
+            download.resume()
+        }
+    }
+    
+    func parsePurchaseData(data: NSData) {
+        let json = JSON(data: data)
+        
+        for (_, result) in json {
+            let itemId = result["item_id"].intValue
+            itemIds.append(itemId)
+        }
+    }
+    
+    func parseHistoryData(data: NSData) {
+        let json = JSON(data: data)
+        
+        history = Icons()
+        
+        for (_, result) in json {
+            let icon = Icon()
+            icon.price = result["item_price"].doubleValue
+            icon.name = result["item_name"].stringValue
+            icon.description = result["item_desc"].stringValue
+            icon.fileName = result["item_location"].stringValue
+            icon.id = result["item_id"].intValue
+            
+            history?.icons.append(icon)
+        }
         
     }
     

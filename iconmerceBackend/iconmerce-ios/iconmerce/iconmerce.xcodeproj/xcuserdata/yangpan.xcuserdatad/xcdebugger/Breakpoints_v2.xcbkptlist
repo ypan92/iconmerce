@@ -122,7 +122,7 @@
                   moduleName = "iconmerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/UserModel.swift"
-                  timestampString = "486869364.671158"
+                  timestampString = "486888882.418393"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -137,7 +137,7 @@
                   moduleName = "iconmerce"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/UserModel.swift"
-                  timestampString = "486869364.671356"
+                  timestampString = "486888882.41856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "166"
@@ -240,6 +240,102 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iconmerce/IconContainerViewController.swift"
+            timestampString = "486887908.209068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iconmerce/IconCenterViewController.swift"
+            timestampString = "486888098.987876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iconmerce/IconCenterViewController.swift"
+            timestampString = "486888136.703051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "hasBeenPurchase()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iconmerce.IconCenterViewController.hasBeenPurchase () -&gt; Swift.Bool"
+                  moduleName = "iconmerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/IconCenterViewController.swift"
+                  timestampString = "486888704.060403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iconmerce.IconCenterViewController.hasBeenPurchase () -&gt; Swift.Bool"
+                  moduleName = "iconmerce"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/iconmerce/iconmerceBackend/iconmerce-ios/iconmerce/iconmerce/IconCenterViewController.swift"
+                  timestampString = "486888704.060559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1083">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iconmerce/LoginCenterViewController.swift"
+            timestampString = "486888475.345541"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "login(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,6 +23,7 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var chargeLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
         view.addSubview(paymentTextField)
         submitButton.enabled = false;
         chargeLabel.text = "Total Charge $\(total!)"
+        errorLabel.hidden = true
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
@@ -43,6 +45,7 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
         STPAPIClient.sharedClient().createTokenWithCard(card) { (token, error) -> Void in
             if error != nil {
                 print("there was an error")
+                self.errorLabel.hidden = false
             }
             else if token != nil {
                 print("success")

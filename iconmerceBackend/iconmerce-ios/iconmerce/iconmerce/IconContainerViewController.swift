@@ -42,6 +42,7 @@ class IconContainerViewController: UIViewController {
         centerViewController.icons = icons
         centerViewController.icon = icon
         centerViewController.user = user
+        centerViewController.history = history
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)
