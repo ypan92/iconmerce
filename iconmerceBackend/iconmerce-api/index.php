@@ -186,6 +186,30 @@ $app->get('/purchases/:id', function($id) use($app, $db) {
 	echo json_encode($purchases, JSON_FORCE_OBJECT);
 });
 
+$app->get('/reviewsratings/:id', function($id) use($app, $db) {
+	$app->response()->header("Content-Type", "application/json");
+	$reviews = array();
+	$revs = $db->ReviewsRatings()->where('item_id', $id);
+	foreach ($revs as $data) {
+		$reviews[] = array(
+			'id' => $data['id'],
+			'user_id' => $data['user_id'],
+			'item_id' => $data['item_id'],
+			'rating' => $data['rating'],
+			'review' => $data['review'],
+			'date' => $data['date']
+		);
+	}
+	echo json_encode($reviews, JSON_FORCE_OBJECT);
+});
+
+$app->post('/reviewsratings', function() use($app, $db) {
+	$app->response->header("Content-Type", "application/json");
+	$review = $app->request()->post();
+	$result = $db->ReviewsRatings()->insert($review);
+	echo json_encode(array('id' => $result['id']));
+});
+
 $app->post('/purchases', function() use($app, $db) {
 	$app->response->header("Content-Type", "application/json");
 	$transaction = $app->request()->post();

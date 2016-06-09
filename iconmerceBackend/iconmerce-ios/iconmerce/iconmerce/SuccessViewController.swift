@@ -31,6 +31,24 @@ class SuccessViewController: UIViewController {
         }
     }
     
+    func getItemId(name: String) -> Int {
+        if name == "Bright Star" {
+            return 1
+        }
+        else if name == "Treasure" {
+            return 2
+        }
+        else if name == "Super Charge" {
+            return 3
+        }
+        else if name == "Exit Button" {
+            return 4
+        }
+        else {
+            return 5
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "testSeg15" {
             let dest = segue.destinationViewController as! HistoryContainerViewController
@@ -39,6 +57,13 @@ class SuccessViewController: UIViewController {
             if history == nil {
                 getHistory()
             }
+            
+            for (item) in (user?.cartItems)! {
+                item.id = getItemId(item.name!)
+                history?.icons.append(item)
+            }
+            user?.cartItems.removeAll()
+            
             dest.history = history
         }
     }

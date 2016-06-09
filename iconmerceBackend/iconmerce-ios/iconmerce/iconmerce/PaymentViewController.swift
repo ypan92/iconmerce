@@ -39,6 +39,11 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
         submitButton.enabled = true;
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
     
     @IBAction func submit(sender: AnyObject) {
         let card = paymentTextField.cardParams

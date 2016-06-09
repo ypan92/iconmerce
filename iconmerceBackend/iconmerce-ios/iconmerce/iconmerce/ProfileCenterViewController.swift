@@ -26,8 +26,6 @@ class ProfileCenterViewController: UIViewController {
     
     var user: User?
     
-    let userModel: UserLoader = UserLoader()
-    
     
     var loadDarkNavBar: Bool = {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black

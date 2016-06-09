@@ -28,6 +28,8 @@ class HistoryCenterViewController: UIViewController, UITableViewDelegate, UITabl
     
     var user: User?
     
+    var count = 0
+    
     @IBOutlet weak var historyList: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -46,6 +48,7 @@ class HistoryCenterViewController: UIViewController, UITableViewDelegate, UITabl
     var iconLoader: IconsLoader?
     
     let userLoader = UserLoader()
+    var reviewLoader = ReviewLoader()
     
     var observablesRegistered = false
     
@@ -107,15 +110,42 @@ class HistoryCenterViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        reviewLoader.itemId = history?.icons[indexPath.row].id!
+        //let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         //performSegueWithIdentifier("reviewDetails", sender: indexPath)
+        
+        historyList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func timerAction() {
+        count += 1
+        if count > 1 && count < 3 {
+            performSegueWithIdentifier("reviewDetails", sender: nil)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        count = 0
+        let indexPath = historyList.indexPathForSelectedRow
+        if indexPath != nil {
+            historyList.deselectRowAtIndexPath(indexPath!, animated: true)
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "testSeg11" {
             let dest = segue.destinationViewController as! LoginContainerViewController
             dest.icons = icons
             dest.user = user
+        }
+        else if segue.identifier == "reviewDetails" {
+            let dest = segue.destinationViewController as! ReviewViewController
+            dest.icons = icons
+            dest.user = user
+            dest.history = history
+            dest.icon = history?.icons[(historyList.indexPathForSelectedRow?.row)!]
+
+            dest.reviewLoader = reviewLoader
         }
     }
     

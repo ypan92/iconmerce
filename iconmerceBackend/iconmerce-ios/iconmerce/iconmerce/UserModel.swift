@@ -67,7 +67,7 @@ class UserLoader {
     }
     
     func refreshData() {
-        if user?.email != "" && user?.password != "" && user?.email != nil && user?.password != nil {
+        if user?.email != nil && user?.password != nil {
             if let url = NSURL(string: "\(baseURL)user/\((user?.email)!)/\((user?.password)!)") {
                 let session = NSURLSession.sharedSession()
                 let download = session.dataTaskWithURL(url) {
@@ -95,7 +95,15 @@ class UserLoader {
             print("Updating user id: " + user_idOBJ)
         }
         
-        updateEmail((putMethod?.email)!, password: (putMethod?.password)!) { (success, message) in
+        var newEmail = ""
+        if putMethod?.email != nil {
+            newEmail = (putMethod?.email)!
+        }
+        var newPass = ""
+        if putMethod?.password != nil {
+            newPass = (putMethod?.password)!
+        }
+        updateEmail(newEmail, password: newPass) { (success, message) in
             if success {
                 print("Success")
             } else {

@@ -33,9 +33,13 @@ class IconContainerViewController: UIViewController {
     
     var user: User?
     
+    var reviewLoader: ReviewLoader?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        reviewLoader = ReviewLoader()
+        reviewLoader?.itemId = (icon?.id)!
         
         centerViewController = UIStoryboard.iconCenterViewController()
         centerViewController.delegate = self
@@ -43,6 +47,7 @@ class IconContainerViewController: UIViewController {
         centerViewController.icon = icon
         centerViewController.user = user
         centerViewController.history = history
+        centerViewController.reviewLoader = reviewLoader
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         //centerNavigationController.navigationBar.backgroundColor = UIColor.blackColor()
         view.addSubview(centerNavigationController.view)

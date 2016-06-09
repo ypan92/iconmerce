@@ -67,11 +67,6 @@ class LoginCenterViewController: UIViewController {
             dest.user = user
             dest.icons = icons
             dest.history = history
-            /*if user != nil {
-                let iconLoader = IconsLoader()
-                iconLoader.userId = Int((user?.user_id)!)
-                dest.iconLoader = iconLoader
-            }*/
         }
         print("in seg")
     }
@@ -134,6 +129,11 @@ class LoginCenterViewController: UIViewController {
         
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
     func getHistory() {
         let baseURL = "http://default-environment.eyqmmrug4y.us-east-1.elasticbeanstalk.com/iconmerce-api/"
         if let url = NSURL(string: "\(baseURL)purchases/\((user?.user_id)!)") {
@@ -147,7 +147,9 @@ class LoginCenterViewController: UIViewController {
                     for (id) in self.itemIds {
                         params += "\(id),"
                     }
-                    params.removeAtIndex(params.endIndex.predecessor())
+                    if params != "" {
+                        params.removeAtIndex(params.endIndex.predecessor())
+                    }
                     if let prodURL = NSURL(string: "\(baseURL)prods/\(params)") {
                         let psession = NSURLSession.sharedSession()
                         let pdownload = psession.dataTaskWithURL(prodURL) {

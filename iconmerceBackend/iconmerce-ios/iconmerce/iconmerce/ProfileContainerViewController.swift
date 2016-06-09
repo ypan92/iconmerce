@@ -68,7 +68,6 @@ class ProfileContainerViewController: UIViewController {
 extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, EditUserProfileDelegate {
     
     func closeEditProfileView() {
-        print("Closing Profile View!")
         animateEditPanelViewController(false)
     }
     
@@ -115,6 +114,7 @@ extension ProfileContainerViewController: ProfileCenterViewControllerDelegate, E
             profileViewController?.delegate = self
             profileViewController?.user = user
             profileViewController?.icons = icons
+            profileViewController?.history = history
             addChildProfilePanelController(profileViewController!)
         }
     }
